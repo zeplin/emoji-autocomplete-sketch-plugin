@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73720E6C0C100A04DBC /* Autocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */; };
+		3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */; };
 		3435B74620E6C48E00A04DBC /* Emojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3435B74520E6C48E00A04DBC /* Emojis.plist */; };
 		3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */; };
