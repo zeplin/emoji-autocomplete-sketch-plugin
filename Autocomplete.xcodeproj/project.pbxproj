@@ -10,6 +10,11 @@
 		3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73720E6C0C100A04DBC /* Autocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */; };
 		3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */; };
+		3435B74620E6C48E00A04DBC /* Emojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3435B74520E6C48E00A04DBC /* Emojis.plist */; };
+		3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */; };
+		3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */; };
+		3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75120E6C57600A04DBC /* ZPLEmoji.h */; };
+		3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75220E6C57600A04DBC /* ZPLEmoji.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +23,11 @@
 		3435B73820E6C0C100A04DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLAutocompletePluginController.h; sourceTree = "<group>"; };
 		3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLAutocompletePluginController.m; sourceTree = "<group>"; };
+		3435B74520E6C48E00A04DBC /* Emojis.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Emojis.plist; sourceTree = "<group>"; };
+		3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLEmojiController.h; sourceTree = "<group>"; };
+		3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLEmojiController.m; sourceTree = "<group>"; };
+		3435B75120E6C57600A04DBC /* ZPLEmoji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLEmoji.h; sourceTree = "<group>"; };
+		3435B75220E6C57600A04DBC /* ZPLEmoji.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLEmoji.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				3435B74420E6C29C00A04DBC /* Sources */,
+				3435B74720E6C4A400A04DBC /* Resources */,
 				3435B73720E6C0C100A04DBC /* Autocomplete.h */,
 				3435B73820E6C0C100A04DBC /* Info.plist */,
 			);
@@ -62,8 +73,36 @@
 			children = (
 				3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */,
 				3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */,
+				3435B75520E6C57B00A04DBC /* Models */,
+				3435B74C20E6C52200A04DBC /* Controllers */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		3435B74720E6C4A400A04DBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3435B74520E6C48E00A04DBC /* Emojis.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3435B74C20E6C52200A04DBC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */,
+				3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3435B75520E6C57B00A04DBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3435B75120E6C57600A04DBC /* ZPLEmoji.h */,
+				3435B75220E6C57600A04DBC /* ZPLEmoji.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -75,6 +114,8 @@
 			files = (
 				3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */,
 				3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */,
+				3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */,
+				3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3435B74620E6C48E00A04DBC /* Emojis.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */,
 				3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */,
+				3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
