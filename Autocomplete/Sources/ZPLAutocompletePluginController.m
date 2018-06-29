@@ -8,6 +8,42 @@
 
 #import "ZPLAutocompletePluginController.h"
 
+#import "ZPLSuggestionController.h"
+
+@interface ZPLAutocompletePluginController ()
+
+@property (strong, nonatomic) ZPLSuggestionController *suggestionController;
+
+@end
+
 @implementation ZPLAutocompletePluginController
+
+#pragma mark - Singleton
+
++ (instancetype)sharedController {
+    static dispatch_once_t once;
+    static id _sharedInstance = nil;
+    dispatch_once(&once, ^{
+        _sharedInstance = [[self alloc] init];
+    });
+    
+    return _sharedInstance;
+}
+
+#pragma mark - Getters & Setters
+
+- (void)setEnabled:(BOOL)enabled {
+    if (_enabled == enabled) {
+        return;
+    }
+    
+    _enabled = enabled;
+    
+    if (enabled) {
+        self.suggestionController = [[ZPLSuggestionController alloc] init];
+    } else {
+        self.suggestionController = nil;
+    }
+}
 
 @end

@@ -10,4 +10,8 @@
 
 @interface ZPLAutocompletePluginController : NSObject
 
+@property (assign, nonatomic, getter=isEnabled) BOOL enabled;
+
++ (instancetype)sharedController;
+
 @end

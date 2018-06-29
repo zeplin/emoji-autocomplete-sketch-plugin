@@ -15,6 +15,8 @@
 		3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */; };
 		3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75120E6C57600A04DBC /* ZPLEmoji.h */; };
 		3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75220E6C57600A04DBC /* ZPLEmoji.m */; };
+		3435B75820E6C64C00A04DBC /* ZPLSuggestionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */; };
+		3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLEmojiController.m; sourceTree = "<group>"; };
 		3435B75120E6C57600A04DBC /* ZPLEmoji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLEmoji.h; sourceTree = "<group>"; };
 		3435B75220E6C57600A04DBC /* ZPLEmoji.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLEmoji.m; sourceTree = "<group>"; };
+		3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionController.h; sourceTree = "<group>"; };
+		3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 			children = (
 				3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */,
 				3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */,
+				3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */,
+				3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */,
+				3435B75820E6C64C00A04DBC /* ZPLSuggestionController.h in Headers */,
 				3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */,
 				3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */,
 				3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */,
@@ -189,6 +196,7 @@
 			files = (
 				3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */,
 				3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */,
+				3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */,
 				3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
