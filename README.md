@@ -1,0 +1,1 @@
+# Emoji Autocomplete Sketch Plugin
