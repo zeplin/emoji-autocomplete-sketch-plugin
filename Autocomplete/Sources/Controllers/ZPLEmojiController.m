@@ -21,7 +21,7 @@
     }
     
     NSBundle *bundle = [NSBundle bundleForClass:[ZPLAutocompletePluginController class]];
-    NSString *emojiListPath = [bundle pathForResource:@"Emoji" ofType:@"plist"];
+    NSString *emojiListPath = [bundle pathForResource:@"Emojis" ofType:@"plist"];
     NSArray<NSDictionary *> *emojiDictionaries = (NSArray<NSDictionary *> *)[NSArray arrayWithContentsOfFile:emojiListPath];
     
     NSMutableArray<ZPLEmoji *> *emojis = [NSMutableArray array];
