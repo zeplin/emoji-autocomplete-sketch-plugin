@@ -30,7 +30,7 @@
     return _sharedInstance;
 }
 
-#pragma mark - Getters & Setters
+#pragma mark - Properties
 
 - (void)setEnabled:(BOOL)enabled {
     if (_enabled == enabled) {

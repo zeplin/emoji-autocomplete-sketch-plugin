@@ -19,6 +19,12 @@
 		3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */; };
 		3435B75C20E6C6B500A04DBC /* ZPLSuggestion.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75A20E6C6B500A04DBC /* ZPLSuggestion.h */; };
 		3435B75D20E6C6B500A04DBC /* ZPLSuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75B20E6C6B500A04DBC /* ZPLSuggestion.m */; };
+		3435B76020E6C76100A04DBC /* ZPLSuggestionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75E20E6C76100A04DBC /* ZPLSuggestionCell.h */; };
+		3435B76120E6C76100A04DBC /* ZPLSuggestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75F20E6C76100A04DBC /* ZPLSuggestionCell.m */; };
+		3435B76520E6C7F800A04DBC /* ZPLFocusTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B76320E6C7F800A04DBC /* ZPLFocusTableView.h */; };
+		3435B76620E6C7F800A04DBC /* ZPLFocusTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */; };
+		3435B76920E6C83800A04DBC /* ZPLSuggestionWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */; };
+		3435B76A20E6C83800A04DBC /* ZPLSuggestionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionController.m; sourceTree = "<group>"; };
 		3435B75A20E6C6B500A04DBC /* ZPLSuggestion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestion.h; sourceTree = "<group>"; };
 		3435B75B20E6C6B500A04DBC /* ZPLSuggestion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestion.m; sourceTree = "<group>"; };
+		3435B75E20E6C76100A04DBC /* ZPLSuggestionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionCell.h; sourceTree = "<group>"; };
+		3435B75F20E6C76100A04DBC /* ZPLSuggestionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionCell.m; sourceTree = "<group>"; };
+		3435B76320E6C7F800A04DBC /* ZPLFocusTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLFocusTableView.h; sourceTree = "<group>"; };
+		3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLFocusTableView.m; sourceTree = "<group>"; };
+		3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionWindowController.h; sourceTree = "<group>"; };
+		3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,7 @@
 				3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */,
 				3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */,
 				3435B75520E6C57B00A04DBC /* Models */,
+				3435B76220E6C76800A04DBC /* Views */,
 				3435B74C20E6C52200A04DBC /* Controllers */,
 			);
 			path = Sources;
@@ -102,6 +115,8 @@
 				3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */,
 				3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */,
 				3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */,
+				3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */,
+				3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +132,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3435B76220E6C76800A04DBC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3435B76320E6C7F800A04DBC /* ZPLFocusTableView.h */,
+				3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */,
+				3435B75E20E6C76100A04DBC /* ZPLSuggestionCell.h */,
+				3435B75F20E6C76100A04DBC /* ZPLSuggestionCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -124,10 +150,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3435B76920E6C83800A04DBC /* ZPLSuggestionWindowController.h in Headers */,
 				3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */,
 				3435B75820E6C64C00A04DBC /* ZPLSuggestionController.h in Headers */,
+				3435B76520E6C7F800A04DBC /* ZPLFocusTableView.h in Headers */,
 				3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */,
 				3435B75C20E6C6B500A04DBC /* ZPLSuggestion.h in Headers */,
+				3435B76020E6C76100A04DBC /* ZPLSuggestionCell.h in Headers */,
 				3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */,
 				3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */,
 			);
@@ -203,6 +232,9 @@
 			files = (
 				3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */,
 				3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */,
+				3435B76120E6C76100A04DBC /* ZPLSuggestionCell.m in Sources */,
+				3435B76620E6C7F800A04DBC /* ZPLFocusTableView.m in Sources */,
+				3435B76A20E6C83800A04DBC /* ZPLSuggestionWindowController.m in Sources */,
 				3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */,
 				3435B75D20E6C6B500A04DBC /* ZPLSuggestion.m in Sources */,
 				3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */,
