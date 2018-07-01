@@ -1,0 +1,19 @@
+default_platform(:mac)
+
+platform :mac do
+  desc "Install dependencies"
+  lane :bootstrap do
+    require "net/http"
+    require "tempfile"
+
+    emojis_uri = URI("https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json")
+    emojis_string = Net::HTTP.get(emojis_uri)
+
+    emojis_tempfile = Tempfile.new("emojis")
+    emojis_tempfile.write(emojis_string)
+
+    sh("plutil -convert xml1 #{emojis_tempfile.path} -o ../Autocomplete/Resources/Emojis.plist")
+
+    emojis_tempfile.unlink
+  end
+end
