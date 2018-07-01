@@ -1,2 +1,4 @@
 .DS_Store
 xcuserdata
+fastlane/report.xml
+Autocomplete/Resources/Emojis.plist
