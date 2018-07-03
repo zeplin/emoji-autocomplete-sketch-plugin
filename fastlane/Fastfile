@@ -67,10 +67,10 @@ platform :mac do
 
   desc "Package and install plugin to Sketch"
   lane :install do |options|
-    package_dir = package(options)
-    plugin_dir = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
+    plugin_dir = package(options)
+    plugin_link = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
 
-    FileUtils.rm_rf(plugin_dir)
-    FileUtils.copy_entry(package_dir, plugin_dir)
+    FileUtils.rm_f(plugin_link)
+    FileUtils.ln_s(plugin_dir, plugin_link)
   end
 end
