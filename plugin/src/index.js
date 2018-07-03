@@ -3,11 +3,17 @@
  */
 function onStartup(context) {
     if (!isFrameworkLoaded()) {
-        var path = context.scriptPath.stringByDeletingLastPathComponent();
+        var contentsPath = context.scriptPath.stringByDeletingLastPathComponent().stringByDeletingLastPathComponent();
+        var resourcesPath = contentsPath.stringByAppendingPathComponent("Resources");
 
-        var result = Mocha.sharedRuntime().loadFrameworkWithName_inDirectory("Autocomplete", path);
+        var result = Mocha.sharedRuntime().loadFrameworkWithName_inDirectory("Autocomplete", resourcesPath);
         if (!result) {
-            context.document.showMessage("Loading framework for “Emoji Autocomplete” failed.");
+            var alert = NSAlert.alloc().init();
+            alert.alertStyle = NSAlertStyleCritical;
+            alert.messageText = "Loading framework for “Emoji Autocomplete” failed"
+            alert.informativeText = "Please try disabling and enabling the plugin or restarting Sketch. Contact support@zeplin.io, if the issue continues."
+
+            alert.runModal();
 
             return;
         }
