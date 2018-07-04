@@ -45,6 +45,10 @@ platform :mac do
 
     plugin_dir = File.join(build_dir, PLUGIN_NAME)
     FileUtils.rm_rf(plugin_dir)
+
+    plugin_compressed_path = "#{plugin_dir}.zip"
+    FileUtils.rm_f(plugin_compressed_path)
+
     FileUtils.mkdir_p(plugin_dir)
 
     contents_dir = File.join(plugin_dir, "Contents")
@@ -61,6 +65,8 @@ platform :mac do
 
     FileUtils.cp("../plugin/manifest.json", sketch_dir)
     FileUtils.cp("../plugin/src/index.js", sketch_dir)
+
+    sh("ditto -c -k --rsrc --keepParent \"#{plugin_dir}\" \"#{plugin_compressed_path}\"")
 
     plugin_dir
   end
