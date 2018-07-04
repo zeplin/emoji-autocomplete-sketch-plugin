@@ -1,0 +1,24 @@
+{
+    "name": "Emoji Autocomplete",
+    "description": "Type “:” followed by the first few letters to autocomplete emojis. 🍒",
+    "author": "Zeplin, Inc.",
+    "authorEmail": "support@zeplin.io",
+    "homepage": "https://github.com/zeplin/emoji-autocomplete-sketch-plugin",
+    "version": "0.1",
+    "identifier": "io.zeplin.sketchPlugin.autocomplete",
+    "compatibleVersion": 3,
+    "bundleVersion": 1,
+    "commands": [
+        {
+            "name": "Action handler",
+            "identifier": "action-handler",
+            "script": "index.js",
+            "handlers": {
+                "actions": {
+                    "Startup": "onStartup",
+                    "Shutdown": "onShutdown"
+                }
+            }
+        }
+    ]
+}

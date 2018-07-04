@@ -21,6 +21,21 @@ or alternatively using `brew cask install fastlane`
 fastlane mac bootstrap
 ```
 Install dependencies
+### mac build
+```
+fastlane mac build
+```
+Build framework
+### mac package
+```
+fastlane mac package
+```
+Package plugin, building framework unless provided
+### mac install
+```
+fastlane mac install
+```
+Package and install plugin to Sketch
 
 ----
 
