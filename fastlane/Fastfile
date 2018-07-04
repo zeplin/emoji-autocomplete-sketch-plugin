@@ -22,7 +22,7 @@ platform :mac do
   end
 
   desc "Build framework"
-  lane :build do |options|
+  lane :build do
     xcodebuild(
       clean: true,
       build: true,
@@ -68,7 +68,7 @@ platform :mac do
   desc "Package and install plugin to Sketch"
   lane :install do |options|
     require "fileutils"
-    
+
     plugin_dir = package(options)
     plugin_link = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
 

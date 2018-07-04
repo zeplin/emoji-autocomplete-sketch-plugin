@@ -1,6 +1,6 @@
 {
     "name": "Emoji Autocomplete",
-    "description": "Type : followed by the first few letters to autocomplete emojis. 🍒",
+    "description": "Type “:” followed by the first few letters to autocomplete emojis. 🍒",
     "author": "Zeplin, Inc.",
     "authorEmail": "support@zeplin.io",
     "homepage": "https://github.com/zeplin/emoji-autocomplete-sketch-plugin",
