@@ -144,7 +144,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
                     case ZPLEventKeyCodeTopArrow: {
                         BOOL isCommand = (event.modifierFlags & NSCommandKeyMask) == NSCommandKeyMask;
                         
-                        NSInteger row = isCommand ? 0 : strongSelf.tableView.selectedRow - 1;
+                        NSInteger row = isCommand ? 0 : MAX(strongSelf.tableView.selectedRow - 1, 0);
                         [strongSelf selectRowAtIndex:row];
                         
                         return nil;
@@ -153,7 +153,8 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
                     case ZPLEventKeyCodeBottomArrow: {
                         BOOL isCommand = (event.modifierFlags & NSCommandKeyMask) == NSCommandKeyMask;
                         
-                        NSInteger row = isCommand ? strongSelf.suggestions.count - 1 : strongSelf.tableView.selectedRow + 1;
+                        NSInteger lastRow = strongSelf.suggestions.count - 1;
+                        NSInteger row = isCommand ? lastRow : MIN(strongSelf.tableView.selectedRow + 1, lastRow);
                         [strongSelf selectRowAtIndex:row];
                         
                         return nil;
