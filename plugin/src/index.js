@@ -1,3 +1,5 @@
+var REPOSITORY_URL_STRING = "https://github.com/zeplin/emoji-autocomplete-sketch-plugin";
+
 /**
  * Handles startup action.
  */
@@ -33,4 +35,13 @@ function onShutdown(context) {
 
 function isFrameworkLoaded() {
     return Boolean(NSClassFromString("ZPLAutocompletePluginController"));
+}
+
+/**
+ * Handles about menu item.
+ */
+function onSelectAboutMenuItem(context) {
+    var repositoryUrl = NSURL.URLWithString(REPOSITORY_URL_STRING);
+
+    NSWorkspace.sharedWorkspace().openURL(repositoryUrl);
 }

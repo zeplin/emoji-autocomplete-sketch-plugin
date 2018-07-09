@@ -10,8 +10,8 @@
     "bundleVersion": 1,
     "commands": [
         {
-            "name": "Action handler",
-            "identifier": "action-handler",
+            "name": "Handle Actions",
+            "identifier": "handle-actions",
             "script": "index.js",
             "handlers": {
                 "actions": {
@@ -19,6 +19,18 @@
                     "Shutdown": "onShutdown"
                 }
             }
+        },
+        {
+            "name": "About Emoji Autocomplete",
+            "identifier": "about",
+            "script": "index.js",
+            "handler": "onSelectAboutMenuItem",
+            "description": "Learn more about the Emoji Autocomplete plugin."
         }
-    ]
+    ],
+    "menu": {
+        "items": [
+            "about"
+        ]
+    }
 }

@@ -13,6 +13,7 @@
 #import "ZPLSuggestion.h"
 #import "ZPLFocusTableView.h"
 #import "ZPLSuggestionCell.h"
+#import "ZPLRowView.h"
 
 static const CGFloat ZPLSuggestionWindowControllerContentViewCornerRadius = 3.0f;
 static const CGFloat ZPLSuggestionWindowControllerMargin = 8.0f;
@@ -23,7 +24,7 @@ static const NSUInteger ZPLEventKeyCodeEscape = 53;
 static const NSUInteger ZPLEventKeyCodeBottomArrow = 125;
 static const NSUInteger ZPLEventKeyCodeTopArrow = 126;
 
-static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 190.0f, .height = 234.0f};
+static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 190.0f, .height = 208.0f};
 
 @interface ZPLSuggestionWindowController () <NSTableViewDataSource, NSTableViewDelegate, ZPLFocusTableViewDelegate>
 
@@ -37,6 +38,8 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
 @end
 
 @implementation ZPLSuggestionWindowController
+
+#pragma mark - Initializers
 
 - (void)dealloc {
     _tableView.delegate = nil;
@@ -286,7 +289,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
 }
 
 - (NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row {
-    return [[NSTableRowView alloc] init];
+    return [[ZPLRowView alloc] init];
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
