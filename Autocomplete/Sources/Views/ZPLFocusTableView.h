@@ -12,11 +12,10 @@
 
 @interface ZPLFocusTableView : NSTableView
 
-@property (weak, nonatomic) id <ZPLFocusTableViewDelegate> zpl_delegate;
-
 @end
 
-@protocol ZPLFocusTableViewDelegate <NSObject>
+@protocol ZPLFocusTableViewDelegate <NSTableViewDelegate>
+@optional
 
 - (void)tableView:(NSTableView *)tableView didClickRow:(NSInteger)row;
 

@@ -15,7 +15,7 @@
 #import "ZPLSuggestionCell.h"
 
 static const CGFloat ZPLSuggestionWindowControllerContentViewCornerRadius = 3.0f;
-static const CGFloat ZPLSuggestionWindowControllerMargin = 12.0f;
+static const CGFloat ZPLSuggestionWindowControllerMargin = 8.0f;
 
 static const NSUInteger ZPLEventKeyCodeReturn = 36;
 static const NSUInteger ZPLEventKeyCodeTab = 48;
@@ -61,7 +61,6 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     
     NSView *contentView = [[NSView alloc] init];
     contentView.wantsLayer = YES;
-    contentView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     contentView.layer.cornerRadius = ZPLSuggestionWindowControllerContentViewCornerRadius;
     
     _tableView = [[ZPLFocusTableView alloc] init];
@@ -69,7 +68,6 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     _tableView.intercellSpacing = NSZeroSize;
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.zpl_delegate = self;
     _tableView.allowsEmptySelection = NO;
     
     NSScrollView *scrollView = [[NSScrollView alloc] init];
@@ -269,7 +267,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     return self.suggestions.count;
 }
 
-#pragma mark - NSTableViewDelegate
+#pragma mark - ZPLFocusTableViewDelegate
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     ZPLSuggestionCell *cell = [tableView makeViewWithIdentifier:[ZPLSuggestionCell reuseIdentifier] owner:self];
@@ -293,8 +291,6 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
     return true;
 }
-
-#pragma mark - ZPLFocusTableViewDelegate
 
 - (void)tableView:(NSTableView *)tableView didClickRow:(NSInteger)row {
     [self.delegate suggestionWindowController:self didSelectSuggestion:self.suggestions[row]];

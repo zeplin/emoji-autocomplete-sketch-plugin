@@ -45,8 +45,9 @@
     NSPoint convertedLocation = [self convertPoint:event.locationInWindow toView:nil];
     NSInteger row = [self rowAtPoint:convertedLocation];
     
-    if (row >= 0 && [self.zpl_delegate respondsToSelector:@selector(tableView:didClickRow:)]) {
-        [self.zpl_delegate tableView:self didClickRow:row];
+    id <ZPLFocusTableViewDelegate> delegate = (id <ZPLFocusTableViewDelegate>)self.delegate;
+    if (row >= 0 && [delegate respondsToSelector:@selector(tableView:didClickRow:)]) {
+        [delegate tableView:self didClickRow:row];
     }
 }
 

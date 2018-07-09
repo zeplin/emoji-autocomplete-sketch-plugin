@@ -14,7 +14,7 @@
 static const CGFloat ZPLSuggestionCellHeight = 40.0f;
 static const CGFloat ZPLSuggestionCellEmojiLeftMargin = 8.0f;
 static const CGFloat ZPLSuggestionCellAliasLeftPadding = 5.0f;
-static const CGFloat ZPLSuggestionCellAliasRightMargin = -5.0f;
+static const CGFloat ZPLSuggestionCellAliasRightMargin = -8.0f;
 
 @interface ZPLSuggestionCell ()
 
@@ -45,8 +45,8 @@ static const CGFloat ZPLSuggestionCellAliasRightMargin = -5.0f;
     _emojiTextField.bordered = NO;
     _emojiTextField.drawsBackground = NO;
     _emojiTextField.editable = NO;
-    _emojiTextField.usesSingleLineMode = YES;
     _emojiTextField.selectable = NO;
+    _emojiTextField.usesSingleLineMode = YES;
     _emojiTextField.font = [NSFont systemFontOfSize:15.0];
     [_emojiTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_emojiTextField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
@@ -55,8 +55,9 @@ static const CGFloat ZPLSuggestionCellAliasRightMargin = -5.0f;
     _aliasTextField.bordered = NO;
     _aliasTextField.drawsBackground = NO;
     _aliasTextField.editable = NO;
-    _aliasTextField.usesSingleLineMode = YES;
     _aliasTextField.selectable = NO;
+    _aliasTextField.usesSingleLineMode = YES;
+    _aliasTextField.lineBreakMode = NSLineBreakByTruncatingMiddle;
     _aliasTextField.alignment = NSTextAlignmentLeft;
     _aliasTextField.font = [NSFont systemFontOfSize:13.0];
     [_aliasTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
