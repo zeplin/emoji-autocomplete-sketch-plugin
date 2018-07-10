@@ -175,7 +175,24 @@ static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
     }
     
     keywordRange = NSMakeRange(keywordRange.location - ZPLSuggestionDelimeter.length, keywordRange.length + ZPLSuggestionDelimeter.length);
-    NSString *replacement = [NSString stringWithFormat:@"%@ ", suggestion.emoji.value];
+    NSUInteger keywordMaxRange = NSMaxRange(keywordRange);
+    
+    BOOL hasWhitespaceSuffix = NO;
+    if (keywordMaxRange < self.positioningTextView.string.length - 1) {
+        NSString *nextCharacterString = [self.positioningTextView.string substringWithRange:NSMakeRange(keywordMaxRange, 1)];
+        
+        if ([nextCharacterString rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]].location != NSNotFound) {
+            hasWhitespaceSuffix = YES;
+        }
+    }
+    
+    NSString *replacement;
+    if (hasWhitespaceSuffix) {
+        replacement = [suggestion.emoji.value copy];
+    } else {
+        replacement = [NSString stringWithFormat:@"%@ ", suggestion.emoji.value];
+    }
+    
     [[self.positioningTextView textStorage] replaceCharactersInRange:keywordRange withString:replacement];
 }
 
