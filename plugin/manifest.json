@@ -7,6 +7,7 @@
     "version": "0.1",
     "identifier": "io.zeplin.sketchPlugin.autocomplete",
     "appcast": "https://raw.githubusercontent.com/zeplin/emoji-autocomplete-sketch-plugin/master/.appcast.xml",
+    "icon": "icon.png",
     "compatibleVersion": 3,
     "bundleVersion": 1,
     "commands": [
