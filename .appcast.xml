@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Emoji Autocomplete Sketch Plugin</title>
+    <description>Type “:” followed by the first few letters to autocomplete emojis.</description>
+    <language>en</language>
+      <item>
+        <title>Version 0.1</title>
+        <enclosure url="" sparkle:version="0.1" />
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,86 @@
+default_platform(:mac)
+
+BUILD_DIR = "build"
+FRAMEWORK_NAME = "Autocomplete.framework"
+PLUGIN_NAME = "Emoji Autocomplete.sketchplugin"
+
+platform :mac do
+  desc "Install dependencies"
+  lane :bootstrap do
+    require "net/http"
+    require "tempfile"
+
+    emojis_uri = URI("https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json")
+    emojis_string = Net::HTTP.get(emojis_uri)
+
+    emojis_tempfile = Tempfile.new("emojis")
+    emojis_tempfile.write(emojis_string)
+
+    sh("plutil -convert xml1 #{emojis_tempfile.path} -o ../Autocomplete/Resources/Emojis.plist")
+
+    emojis_tempfile.unlink
+  end
+
+  desc "Build framework"
+  lane :build do
+    xcodebuild(
+      clean: true,
+      build: true,
+      scheme: "Autocomplete",
+      configuration: "Release",
+      xcargs: "CONFIGURATION_BUILD_DIR=#{BUILD_DIR}"
+    )
+
+    File.expand_path(File.join("..", BUILD_DIR))
+  end
+
+  desc "Package plugin, building framework unless provided"
+  lane :package do |options|
+    require "fileutils"
+
+    build_dir = options[:build_dir]
+    unless build_dir
+      build_dir = build
+    end
+
+    plugin_dir = File.join(build_dir, PLUGIN_NAME)
+    FileUtils.rm_rf(plugin_dir)
+
+    plugin_compressed_path = "#{plugin_dir}.zip"
+    FileUtils.rm_f(plugin_compressed_path)
+
+    FileUtils.mkdir_p(plugin_dir)
+
+    contents_dir = File.join(plugin_dir, "Contents")
+    FileUtils.mkdir_p(contents_dir)
+
+    resources_dir = File.join(contents_dir, "Resources")
+    FileUtils.mkdir_p(resources_dir)
+
+    framework_dir = File.join(build_dir, FRAMEWORK_NAME)
+    FileUtils.copy_entry(framework_dir, File.join(resources_dir, FRAMEWORK_NAME))
+
+    FileUtils.cp("../plugin/img/icon.png", resources_dir)
+
+    sketch_dir = File.join(contents_dir, "Sketch")
+    FileUtils.mkdir_p(sketch_dir)
+
+    FileUtils.cp("../plugin/manifest.json", sketch_dir)
+    FileUtils.cp("../plugin/src/index.js", sketch_dir)
+
+    sh("ditto -c -k --rsrc --keepParent \"#{plugin_dir}\" \"#{plugin_compressed_path}\"")
+
+    plugin_dir
+  end
+
+  desc "Package and install plugin to Sketch"
+  lane :install do |options|
+    require "fileutils"
+
+    plugin_dir = package(options)
+    plugin_link = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
+
+    FileUtils.rm_f(plugin_link)
+    FileUtils.ln_s(plugin_dir, plugin_link)
+  end
+end

@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73720E6C0C100A04DBC /* Autocomplete.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */; };
+		3435B74620E6C48E00A04DBC /* Emojis.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3435B74520E6C48E00A04DBC /* Emojis.plist */; };
+		3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */; };
+		3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */; };
+		3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75120E6C57600A04DBC /* ZPLEmoji.h */; };
+		3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75220E6C57600A04DBC /* ZPLEmoji.m */; };
+		3435B75820E6C64C00A04DBC /* ZPLSuggestionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */; };
+		3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */; };
+		3435B75C20E6C6B500A04DBC /* ZPLSuggestion.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75A20E6C6B500A04DBC /* ZPLSuggestion.h */; };
+		3435B75D20E6C6B500A04DBC /* ZPLSuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75B20E6C6B500A04DBC /* ZPLSuggestion.m */; };
+		3435B76020E6C76100A04DBC /* ZPLSuggestionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B75E20E6C76100A04DBC /* ZPLSuggestionCell.h */; };
+		3435B76120E6C76100A04DBC /* ZPLSuggestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B75F20E6C76100A04DBC /* ZPLSuggestionCell.m */; };
+		3435B76520E6C7F800A04DBC /* ZPLFocusTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B76320E6C7F800A04DBC /* ZPLFocusTableView.h */; };
+		3435B76620E6C7F800A04DBC /* ZPLFocusTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */; };
+		3435B76920E6C83800A04DBC /* ZPLSuggestionWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */; };
+		3435B76A20E6C83800A04DBC /* ZPLSuggestionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */; };
+		C0840FD220F37E1D00AEAE81 /* ZPLRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0840FD020F37E1D00AEAE81 /* ZPLRowView.h */; };
+		C0840FD320F37E1D00AEAE81 /* ZPLRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */; };
+		C0840FD720F3B46400AEAE81 /* NSColor+Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */; };
+		C0840FD820F3B46400AEAE81 /* NSColor+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = C0840FD620F3B46400AEAE81 /* NSColor+Autocomplete.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3435B73420E6C0C100A04DBC /* Autocomplete.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Autocomplete.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3435B73720E6C0C100A04DBC /* Autocomplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Autocomplete.h; sourceTree = "<group>"; };
+		3435B73820E6C0C100A04DBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLAutocompletePluginController.h; sourceTree = "<group>"; };
+		3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLAutocompletePluginController.m; sourceTree = "<group>"; };
+		3435B74520E6C48E00A04DBC /* Emojis.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Emojis.plist; sourceTree = "<group>"; };
+		3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLEmojiController.h; sourceTree = "<group>"; };
+		3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLEmojiController.m; sourceTree = "<group>"; };
+		3435B75120E6C57600A04DBC /* ZPLEmoji.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLEmoji.h; sourceTree = "<group>"; };
+		3435B75220E6C57600A04DBC /* ZPLEmoji.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLEmoji.m; sourceTree = "<group>"; };
+		3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionController.h; sourceTree = "<group>"; };
+		3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionController.m; sourceTree = "<group>"; };
+		3435B75A20E6C6B500A04DBC /* ZPLSuggestion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestion.h; sourceTree = "<group>"; };
+		3435B75B20E6C6B500A04DBC /* ZPLSuggestion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestion.m; sourceTree = "<group>"; };
+		3435B75E20E6C76100A04DBC /* ZPLSuggestionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionCell.h; sourceTree = "<group>"; };
+		3435B75F20E6C76100A04DBC /* ZPLSuggestionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionCell.m; sourceTree = "<group>"; };
+		3435B76320E6C7F800A04DBC /* ZPLFocusTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLFocusTableView.h; sourceTree = "<group>"; };
+		3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLFocusTableView.m; sourceTree = "<group>"; };
+		3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionWindowController.h; sourceTree = "<group>"; };
+		3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionWindowController.m; sourceTree = "<group>"; };
+		C0840FD020F37E1D00AEAE81 /* ZPLRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLRowView.h; sourceTree = "<group>"; };
+		C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLRowView.m; sourceTree = "<group>"; };
+		C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Autocomplete.h"; sourceTree = "<group>"; };
+		C0840FD620F3B46400AEAE81 /* NSColor+Autocomplete.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Autocomplete.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3435B73020E6C0C100A04DBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3435B72A20E6C0C100A04DBC = {
+			isa = PBXGroup;
+			children = (
+				3435B73620E6C0C100A04DBC /* Autocomplete */,
+				3435B73520E6C0C100A04DBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3435B73520E6C0C100A04DBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3435B73420E6C0C100A04DBC /* Autocomplete.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3435B73620E6C0C100A04DBC /* Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				3435B74420E6C29C00A04DBC /* Sources */,
+				3435B74720E6C4A400A04DBC /* Resources */,
+				3435B73720E6C0C100A04DBC /* Autocomplete.h */,
+				3435B73820E6C0C100A04DBC /* Info.plist */,
+			);
+			path = Autocomplete;
+			sourceTree = "<group>";
+		};
+		3435B74420E6C29C00A04DBC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3435B73F20E6C14D00A04DBC /* ZPLAutocompletePluginController.h */,
+				3435B74020E6C14D00A04DBC /* ZPLAutocompletePluginController.m */,
+				3435B75520E6C57B00A04DBC /* Models */,
+				3435B76220E6C76800A04DBC /* Views */,
+				3435B74C20E6C52200A04DBC /* Controllers */,
+				C0840FD420F3B43C00AEAE81 /* Categories */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3435B74720E6C4A400A04DBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3435B74520E6C48E00A04DBC /* Emojis.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3435B74C20E6C52200A04DBC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3435B74820E6C51F00A04DBC /* ZPLEmojiController.h */,
+				3435B74920E6C51F00A04DBC /* ZPLEmojiController.m */,
+				3435B75620E6C64C00A04DBC /* ZPLSuggestionController.h */,
+				3435B75720E6C64C00A04DBC /* ZPLSuggestionController.m */,
+				3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */,
+				3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3435B75520E6C57B00A04DBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3435B75120E6C57600A04DBC /* ZPLEmoji.h */,
+				3435B75220E6C57600A04DBC /* ZPLEmoji.m */,
+				3435B75A20E6C6B500A04DBC /* ZPLSuggestion.h */,
+				3435B75B20E6C6B500A04DBC /* ZPLSuggestion.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3435B76220E6C76800A04DBC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3435B76320E6C7F800A04DBC /* ZPLFocusTableView.h */,
+				3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */,
+				3435B75E20E6C76100A04DBC /* ZPLSuggestionCell.h */,
+				3435B75F20E6C76100A04DBC /* ZPLSuggestionCell.m */,
+				C0840FD020F37E1D00AEAE81 /* ZPLRowView.h */,
+				C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C0840FD420F3B43C00AEAE81 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */,
+				C0840FD620F3B46400AEAE81 /* NSColor+Autocomplete.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3435B73120E6C0C100A04DBC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3435B76920E6C83800A04DBC /* ZPLSuggestionWindowController.h in Headers */,
+				3435B74120E6C14D00A04DBC /* ZPLAutocompletePluginController.h in Headers */,
+				3435B75820E6C64C00A04DBC /* ZPLSuggestionController.h in Headers */,
+				3435B76520E6C7F800A04DBC /* ZPLFocusTableView.h in Headers */,
+				3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */,
+				C0840FD220F37E1D00AEAE81 /* ZPLRowView.h in Headers */,
+				3435B75C20E6C6B500A04DBC /* ZPLSuggestion.h in Headers */,
+				3435B76020E6C76100A04DBC /* ZPLSuggestionCell.h in Headers */,
+				3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */,
+				C0840FD720F3B46400AEAE81 /* NSColor+Autocomplete.h in Headers */,
+				3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3435B73320E6C0C100A04DBC /* Autocomplete */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3435B73C20E6C0C100A04DBC /* Build configuration list for PBXNativeTarget "Autocomplete" */;
+			buildPhases = (
+				3435B72F20E6C0C100A04DBC /* Sources */,
+				3435B73020E6C0C100A04DBC /* Frameworks */,
+				3435B73120E6C0C100A04DBC /* Headers */,
+				3435B73220E6C0C100A04DBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Autocomplete;
+			productName = Autocomplete;
+			productReference = 3435B73420E6C0C100A04DBC /* Autocomplete.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3435B72B20E6C0C100A04DBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Zeplin, Inc.";
+				TargetAttributes = {
+					3435B73320E6C0C100A04DBC = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 3435B72E20E6C0C100A04DBC /* Build configuration list for PBXProject "Autocomplete" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3435B72A20E6C0C100A04DBC;
+			productRefGroup = 3435B73520E6C0C100A04DBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3435B73320E6C0C100A04DBC /* Autocomplete */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3435B73220E6C0C100A04DBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3435B74620E6C48E00A04DBC /* Emojis.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3435B72F20E6C0C100A04DBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3435B75420E6C57600A04DBC /* ZPLEmoji.m in Sources */,
+				3435B74220E6C14D00A04DBC /* ZPLAutocompletePluginController.m in Sources */,
+				3435B76120E6C76100A04DBC /* ZPLSuggestionCell.m in Sources */,
+				3435B76620E6C7F800A04DBC /* ZPLFocusTableView.m in Sources */,
+				C0840FD320F37E1D00AEAE81 /* ZPLRowView.m in Sources */,
+				3435B76A20E6C83800A04DBC /* ZPLSuggestionWindowController.m in Sources */,
+				3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */,
+				3435B75D20E6C6B500A04DBC /* ZPLSuggestion.m in Sources */,
+				C0840FD820F3B46400AEAE81 /* NSColor+Autocomplete.m in Sources */,
+				3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3435B73A20E6C0C100A04DBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8U3Y4X5WDQ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3435B73B20E6C0C100A04DBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8U3Y4X5WDQ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3435B73D20E6C0C100A04DBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Autocomplete/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.zeplin.Autocomplete;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3435B73E20E6C0C100A04DBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Autocomplete/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.zeplin.Autocomplete;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3435B72E20E6C0C100A04DBC /* Build configuration list for PBXProject "Autocomplete" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3435B73A20E6C0C100A04DBC /* Debug */,
+				3435B73B20E6C0C100A04DBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3435B73C20E6C0C100A04DBC /* Build configuration list for PBXNativeTarget "Autocomplete" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3435B73D20E6C0C100A04DBC /* Debug */,
+				3435B73E20E6C0C100A04DBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3435B72B20E6C0C100A04DBC /* Project object */;
+}
