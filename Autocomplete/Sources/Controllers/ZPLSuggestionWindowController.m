@@ -75,8 +75,8 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     
     [contentView addSubview:scrollView];
     
-    contentView.translatesAutoresizingMaskIntoConstraints = false;
-    scrollView.translatesAutoresizingMaskIntoConstraints = false;
+    contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:@[
         [scrollView.topAnchor constraintEqualToAnchor:contentView.topAnchor],
@@ -89,7 +89,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     column.resizingMask = NSTableColumnAutoresizingMask;
     [_tableView addTableColumn:column];
     
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSZeroRect styleMask:NSWindowStyleMaskBorderless backing:NSBackingStoreBuffered defer:false];
+    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSZeroRect styleMask:NSWindowStyleMaskBorderless backing:NSBackingStoreBuffered defer:NO];
     window.titleVisibility = NSWindowTitleHidden;
     window.hasShadow = YES;
     window.opaque = NO;
@@ -112,7 +112,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
         return;
     }
     
-    if (self.window.isVisible == false) {
+    if (self.window.isVisible == NO) {
         [positioningTextView.window addChildWindow:self.window ordered:NSWindowAbove];
         
         __weak typeof(self) weakSelf = self;
@@ -202,7 +202,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
 }
 
 - (void)dismiss {
-    if (self.window.isVisible == false) {
+    if (self.window.isVisible == NO) {
         return;
     }
     
@@ -290,7 +290,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
-    return true;
+    return YES;
 }
 
 - (void)tableView:(NSTableView *)tableView didClickRow:(NSInteger)row {
