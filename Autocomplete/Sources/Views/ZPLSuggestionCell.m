@@ -11,10 +11,8 @@
 #import "ZPLEmoji.h"
 #import "ZPLSuggestion.h"
 
-static const CGFloat ZPLSuggestionCellHeight = 40.0f;
-static const CGFloat ZPLSuggestionCellEmojiLeftMargin = 8.0f;
-static const CGFloat ZPLSuggestionCellAliasLeftPadding = 5.0f;
-static const CGFloat ZPLSuggestionCellAliasRightMargin = -8.0f;
+static const CGFloat ZPLSuggestionCellHeight = 32.0f;
+static const CGFloat ZPLSuggestionCellMargin = 8.0f;
 
 @interface ZPLSuggestionCell ()
 
@@ -33,6 +31,8 @@ static const CGFloat ZPLSuggestionCellAliasRightMargin = -8.0f;
     return NSStringFromClass([ZPLSuggestionCell class]);
 }
 
+#pragma mark - Initializers
+
 - (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) {
@@ -47,7 +47,7 @@ static const CGFloat ZPLSuggestionCellAliasRightMargin = -8.0f;
     _emojiTextField.editable = NO;
     _emojiTextField.selectable = NO;
     _emojiTextField.usesSingleLineMode = YES;
-    _emojiTextField.font = [NSFont systemFontOfSize:15.0];
+    _emojiTextField.font = [NSFont systemFontOfSize:14.0];
     [_emojiTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_emojiTextField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
     
@@ -59,7 +59,7 @@ static const CGFloat ZPLSuggestionCellAliasRightMargin = -8.0f;
     _aliasTextField.usesSingleLineMode = YES;
     _aliasTextField.lineBreakMode = NSLineBreakByTruncatingMiddle;
     _aliasTextField.alignment = NSTextAlignmentLeft;
-    _aliasTextField.font = [NSFont systemFontOfSize:13.0];
+    _aliasTextField.font = [NSFont systemFontOfSize:11.0];
     [_aliasTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_aliasTextField setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
     
@@ -71,11 +71,11 @@ static const CGFloat ZPLSuggestionCellAliasRightMargin = -8.0f;
     _aliasTextField.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:@[
-        [_emojiTextField.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:ZPLSuggestionCellEmojiLeftMargin],
+        [_emojiTextField.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:ZPLSuggestionCellMargin],
         [_emojiTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
-        [_aliasTextField.leftAnchor constraintEqualToAnchor:_emojiTextField.rightAnchor constant:ZPLSuggestionCellAliasLeftPadding],
-        [_aliasTextField.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:ZPLSuggestionCellAliasRightMargin],
-        [_aliasTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor constant:-1.0f]
+        [_aliasTextField.leftAnchor constraintEqualToAnchor:_emojiTextField.rightAnchor constant:ZPLSuggestionCellMargin],
+        [_aliasTextField.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-1.0f * ZPLSuggestionCellMargin],
+        [_aliasTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]
     ]];
     
     return self;
