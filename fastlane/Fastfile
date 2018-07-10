@@ -60,6 +60,8 @@ platform :mac do
     framework_dir = File.join(build_dir, FRAMEWORK_NAME)
     FileUtils.copy_entry(framework_dir, File.join(resources_dir, FRAMEWORK_NAME))
 
+    FileUtils.cp("../plugin/img/icon.png", resources_dir)
+
     sketch_dir = File.join(contents_dir, "Sketch")
     FileUtils.mkdir_p(sketch_dir)
 
