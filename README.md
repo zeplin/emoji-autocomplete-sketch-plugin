@@ -5,9 +5,19 @@ While editing Sketch text layers, type `:` followed by the first few letters to 
 
 ## Installation
 - [Download](https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v0.1/Emoji.Autocomplete.sketchplugin.zip) latest release, 0.1.
-- Double click downloaded file `Emoji Autocomplete.sketchplugin`.
+- Unzip—if necessary—and double click `Emoji Autocomplete.sketchplugin`.
 
 ## Usage
 While editing text layers, type `:` followed by a few letters to display a list of emojis to autocomplete from. Use the arrow keys or your mouse to select one.
 
 <img src="img/demo.gif" width="600px" height="380px">
+
+## License
+
+Emoji Autocomplete Sketch Plugin is released under the MIT license. See [LICENSE](LICENSE) for details.
+
+---
+
+<a href="https://zeplin.io"><img src="img/logo.svg" alt="Zeplin Logo" /></a>
+
+Emoji Autocomplete Sketch Plugin is crafted and maintained by the crew behind [Zeplin](https://zeplin.io). Follow [@zeplin](https://twitter.com/zeplin) on Twitter for project updates and releases.
