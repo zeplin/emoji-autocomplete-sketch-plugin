@@ -6,7 +6,7 @@
     <language>en</language>
       <item>
         <title>Version 0.1</title>
-        <enclosure url="" sparkle:version="0.1" />
+        <enclosure url="https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v0.1/Emoji.Autocomplete.sketchplugin.zip" sparkle:version="0.1" />
       </item>
   </channel>
 </rss>
