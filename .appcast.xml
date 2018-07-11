@@ -5,6 +5,18 @@
     <description>Type “:” followed by the first few letters to autocomplete emojis.</description>
     <language>en</language>
       <item>
+        <title>Version 0.2</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>You can now autocomplete emojis while editing overrides and layer names.</li>
+              <li>Added icon for Runner.</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v0.2/Emoji.Autocomplete.sketchplugin.zip" sparkle:version="0.2" />
+      </item>
+      <item>
         <title>Version 0.1</title>
         <enclosure url="https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v0.1/Emoji.Autocomplete.sketchplugin.zip" sparkle:version="0.1" />
       </item>
