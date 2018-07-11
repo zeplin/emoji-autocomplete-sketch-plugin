@@ -13,8 +13,13 @@
 #import "ZPLEmojiController.h"
 #import "ZPLSuggestionWindowController.h"
 
+#import "NSView+Autocomplete.h"
+
 static NSString * const ZPLSuggestionDelimeter = @":";
 static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
+static NSString * const BCPageListViewControllerClassName = @"BCPageListViewController";
+static NSString * const BCLayerListViewControllerClassName = @"BCLayerListViewController";
+static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverrideViewController";
 
 @interface ZPLSuggestionController () <ZPLSuggestionWindowControllerDelegate>
 
@@ -22,6 +27,7 @@ static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
 @property (strong, nonatomic) ZPLSuggestionWindowController *windowController;
 
 @property (strong, nonatomic) NSCharacterSet *invertedCharacterSet;
+@property (strong, nonatomic) NSArray<NSString *> *responderClassNames;
 
 @property (strong, nonatomic) NSTextView *positioningTextView;
 
@@ -43,6 +49,7 @@ static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
     
     _emojiController = [[ZPLEmojiController alloc] init];
     _invertedCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
+    _responderClassNames = @[BCPageListViewControllerClassName, BCLayerListViewControllerClassName, MSTextOverrideViewControllerClassName];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChangeSelection:) name:NSTextViewDidChangeSelectionNotification object:nil];
     
@@ -51,12 +58,16 @@ static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
 
 #pragma mark - Private
 
+- (void)dismissWindowController {
+    [self.windowController dismiss];
+    self.windowController = nil;
+}
+
 - (void)reloadSuggestionsForTextView:(NSTextView *)textView {
     NSArray<ZPLSuggestion *> *suggestions = [self suggestionsForTextView:textView];
     
     if (suggestions.count == 0) {
-        [self.windowController dismiss];
-        self.windowController = nil;
+        [self dismissWindowController];
         
         return;
     }
@@ -132,7 +143,6 @@ static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
     NSString *rightText = [text substringFromIndex:range.location];
     
     NSRange leftInvalidCharacterRange = [leftText rangeOfCharacterFromSet:self.invertedCharacterSet options:NSBackwardsSearch];
-    
     if (leftInvalidCharacterRange.location == NSNotFound
         || ![[leftText substringWithRange:leftInvalidCharacterRange] isEqualToString:ZPLSuggestionDelimeter]) {
         return NSMakeRange(NSNotFound, 0);
@@ -152,11 +162,14 @@ static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
 #pragma mark - Notifications
 
 - (void)textViewDidChangeSelection:(NSNotification *)notification {
-    if (![notification.object isKindOfClass:NSClassFromString(MSTextLayerTextViewClassName)]) {
+    NSTextView *textView = (NSTextView *)notification.object;
+    
+    if (![textView isKindOfClass:NSClassFromString(MSTextLayerTextViewClassName)] &&
+        ![textView zpl_nextRespondersContainClassFromNames:self.responderClassNames]) {
+        [self dismissWindowController];
+        
         return;
     }
-    
-    NSTextView *textView = (NSTextView *)notification.object;
     
     [self reloadSuggestionsForTextView:textView];
 }

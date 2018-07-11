@@ -61,6 +61,7 @@ platform :mac do
     FileUtils.copy_entry(framework_dir, File.join(resources_dir, FRAMEWORK_NAME))
 
     FileUtils.cp("../plugin/img/icon.png", resources_dir)
+    FileUtils.cp("../plugin/img/iconRunner.png", resources_dir)
 
     sketch_dir = File.join(contents_dir, "Sketch")
     FileUtils.mkdir_p(sketch_dir)
@@ -77,10 +78,10 @@ platform :mac do
   lane :install do |options|
     require "fileutils"
 
-    plugin_dir = package(options)
-    plugin_link = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
+    package_plugin_dir = package(options)
+    plugin_dir = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
 
-    FileUtils.rm_f(plugin_link)
-    FileUtils.ln_s(plugin_dir, plugin_link)
+    FileUtils.rm_f(plugin_dir)
+    FileUtils.copy_entry(package_plugin_dir, plugin_dir)
   end
 end
