@@ -25,6 +25,8 @@
 		3435B76620E6C7F800A04DBC /* ZPLFocusTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */; };
 		3435B76920E6C83800A04DBC /* ZPLSuggestionWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */; };
 		3435B76A20E6C83800A04DBC /* ZPLSuggestionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */; };
+		343DDD0920F51B450087E1CB /* NSView+Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = 343DDD0720F51B450087E1CB /* NSView+Autocomplete.h */; };
+		343DDD0A20F51B450087E1CB /* NSView+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 343DDD0820F51B450087E1CB /* NSView+Autocomplete.m */; };
 		C0840FD220F37E1D00AEAE81 /* ZPLRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0840FD020F37E1D00AEAE81 /* ZPLRowView.h */; };
 		C0840FD320F37E1D00AEAE81 /* ZPLRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */; };
 		C0840FD720F3B46400AEAE81 /* NSColor+Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */; };
@@ -52,6 +54,8 @@
 		3435B76420E6C7F800A04DBC /* ZPLFocusTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLFocusTableView.m; sourceTree = "<group>"; };
 		3435B76720E6C83800A04DBC /* ZPLSuggestionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLSuggestionWindowController.h; sourceTree = "<group>"; };
 		3435B76820E6C83800A04DBC /* ZPLSuggestionWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLSuggestionWindowController.m; sourceTree = "<group>"; };
+		343DDD0720F51B450087E1CB /* NSView+Autocomplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Autocomplete.h"; sourceTree = "<group>"; };
+		343DDD0820F51B450087E1CB /* NSView+Autocomplete.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Autocomplete.m"; sourceTree = "<group>"; };
 		C0840FD020F37E1D00AEAE81 /* ZPLRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLRowView.h; sourceTree = "<group>"; };
 		C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLRowView.m; sourceTree = "<group>"; };
 		C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Autocomplete.h"; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 			children = (
 				C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */,
 				C0840FD620F3B46400AEAE81 /* NSColor+Autocomplete.m */,
+				343DDD0720F51B450087E1CB /* NSView+Autocomplete.h */,
+				343DDD0820F51B450087E1CB /* NSView+Autocomplete.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 				C0840FD220F37E1D00AEAE81 /* ZPLRowView.h in Headers */,
 				3435B75C20E6C6B500A04DBC /* ZPLSuggestion.h in Headers */,
 				3435B76020E6C76100A04DBC /* ZPLSuggestionCell.h in Headers */,
+				343DDD0920F51B450087E1CB /* NSView+Autocomplete.h in Headers */,
 				3435B75320E6C57600A04DBC /* ZPLEmoji.h in Headers */,
 				C0840FD720F3B46400AEAE81 /* NSColor+Autocomplete.h in Headers */,
 				3435B74A20E6C51F00A04DBC /* ZPLEmojiController.h in Headers */,
@@ -261,6 +268,7 @@
 				3435B75920E6C64C00A04DBC /* ZPLSuggestionController.m in Sources */,
 				3435B75D20E6C6B500A04DBC /* ZPLSuggestion.m in Sources */,
 				C0840FD820F3B46400AEAE81 /* NSColor+Autocomplete.m in Sources */,
+				343DDD0A20F51B450087E1CB /* NSView+Autocomplete.m in Sources */,
 				3435B74B20E6C51F00A04DBC /* ZPLEmojiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
