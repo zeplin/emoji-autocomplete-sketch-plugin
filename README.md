@@ -4,7 +4,7 @@
 Type `:` followed by the first few letters to autocomplete emojis. 🍒
 
 ## Installation
-- [Download](https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v0.1/Emoji.Autocomplete.sketchplugin.zip) latest release, 0.1.
+- [Download](https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v0.2/Emoji.Autocomplete.sketchplugin.zip) latest release, 0.2.
 - Unzip, if necessary, and double click `Emoji Autocomplete.sketchplugin`.
 
 ## Usage
