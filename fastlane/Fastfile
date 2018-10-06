@@ -1,22 +1,28 @@
-default_platform(:mac)
+require "fileutils"
+require "net/http"
+require "tempfile"
 
 BUILD_DIR = "build"
 FRAMEWORK_NAME = "Autocomplete.framework"
 PLUGIN_NAME = "Emoji Autocomplete.sketchplugin"
 
+default_platform(:mac)
+
 platform :mac do
   desc "Install dependencies"
   lane :bootstrap do
-    require "net/http"
-    require "tempfile"
-
     emojis_uri = URI("https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json")
     emojis_string = Net::HTTP.get(emojis_uri)
 
     emojis_tempfile = Tempfile.new("emojis")
     emojis_tempfile.write(emojis_string)
 
-    sh("plutil -convert xml1 #{emojis_tempfile.path} -o ../Autocomplete/Resources/Emojis.plist")
+    resources_dir = File.join("..", "Autocomplete", "Resources")
+    FileUtils.mkdir_p(resources_dir)
+
+    emojis_path = File.join(resources_dir, "Emojis.plist")
+
+    sh("plutil -convert xml1 #{emojis_tempfile.path} -o #{emojis_path}")
 
     emojis_tempfile.unlink
   end
@@ -36,8 +42,6 @@ platform :mac do
 
   desc "Package plugin, building framework unless provided"
   lane :package do |options|
-    require "fileutils"
-
     build_dir = options[:build_dir]
     unless build_dir
       build_dir = build
@@ -76,8 +80,6 @@ platform :mac do
 
   desc "Package and install plugin to Sketch"
   lane :install do |options|
-    require "fileutils"
-
     package_plugin_dir = package(options)
     plugin_dir = File.join(Dir.home, "Library", "Application Support", "com.bohemiancoding.sketch3", "Plugins", PLUGIN_NAME)
 
