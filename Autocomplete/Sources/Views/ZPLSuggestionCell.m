@@ -56,9 +56,9 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     if (!self) {
         return nil;
     }
-    
+
     self.identifier = [[self class] reuseIdentifier];
-    
+
     _emojiTextField = [[NSTextField alloc] init];
     _emojiTextField.bordered = NO;
     _emojiTextField.drawsBackground = NO;
@@ -68,7 +68,7 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     _emojiTextField.font = [NSFont systemFontOfSize:14.0];
     [_emojiTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_emojiTextField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
-    
+
     _aliasTextField = [[NSTextField alloc] init];
     _aliasTextField.bordered = NO;
     _aliasTextField.drawsBackground = NO;
@@ -80,14 +80,14 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     _aliasTextField.font = [NSFont systemFontOfSize:11.0];
     [_aliasTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_aliasTextField setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
-    
+
     [self addSubview:_emojiTextField];
     [self addSubview:_aliasTextField];
-    
+
     self.translatesAutoresizingMaskIntoConstraints = NO;
     _emojiTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _aliasTextField.translatesAutoresizingMaskIntoConstraints = NO;
-    
+
     [NSLayoutConstraint activateConstraints:@[
         [_emojiTextField.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:ZPLSuggestionCellMargin],
         [_emojiTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
@@ -95,7 +95,7 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
         [_aliasTextField.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-1.0f * ZPLSuggestionCellMargin],
         [_aliasTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]
     ]];
-    
+
     return self;
 }
 
@@ -103,7 +103,7 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
 
 - (void)setSuggestion:(ZPLSuggestion *)suggestion {
     _suggestion = suggestion;
-    
+
     self.emojiTextField.stringValue = suggestion.emoji.value;
     self.aliasTextField.stringValue = suggestion.alias;
 }

@@ -64,13 +64,13 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
     if (!self) {
         return nil;
     }
-    
+
     _emojiController = [[ZPLEmojiController alloc] init];
     _invertedCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
     _responderClassNames = @[BCPageListViewControllerClassName, BCLayerListViewControllerClassName, MSTextOverrideViewControllerClassName];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChangeSelection:) name:NSTextViewDidChangeSelectionNotification object:nil];
-    
+
     return self;
 }
 
@@ -83,65 +83,65 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
 
 - (void)reloadSuggestionsForTextView:(NSTextView *)textView {
     NSArray<ZPLSuggestion *> *suggestions = [self suggestionsForTextView:textView];
-    
+
     if (suggestions.count == 0) {
         [self dismissWindowController];
-        
+
         return;
     }
-    
+
     if (!self.windowController) {
         self.windowController = [[ZPLSuggestionWindowController alloc] init];
         self.windowController.delegate = self;
     }
-    
+
     self.positioningTextView = textView;
     [self.windowController presentWithSuggestions:suggestions positioningTextView:textView];
 }
 
 - (NSArray<ZPLSuggestion *> *)suggestionsForTextView:(NSTextView *)textView {
     NSRange keywordRange = [self keywordRangeForTextView:textView];
-    
+
     if (keywordRange.location == NSNotFound) {
         return @[];
     }
-    
+
     NSString *text = [textView.string lowercaseString];
     NSString *keyword = [text substringWithRange:keywordRange];
     NSMutableArray<ZPLSuggestion *> *suggestions = [NSMutableArray array];
-    
+
     for (ZPLEmoji *emoji in self.emojiController.emojis) {
         for (NSString *alias in emoji.aliases) {
             if ([alias hasPrefix:keyword]) {
                 ZPLSuggestion *suggestion = [[ZPLSuggestion alloc] init];
                 suggestion.emoji = emoji;
                 suggestion.alias = alias;
-                
+
                 [suggestions addObject:suggestion];
-                
+
                 continue;
             }
-            
+
             NSArray<NSString *> *aliasComponents = [alias componentsSeparatedByString:ZPLEmojiAliasSeparator];
-            
+
             if (aliasComponents.count <= 1) {
                 continue;
             }
-            
+
             for (NSString *aliasComponent in aliasComponents) {
                 if ([aliasComponent hasPrefix:keyword]) {
                     ZPLSuggestion *suggestion = [[ZPLSuggestion alloc] init];
                     suggestion.emoji = emoji;
                     suggestion.alias = alias;
-                    
+
                     [suggestions addObject:suggestion];
-                    
+
                     break;
                 }
             }
         }
     }
-    
+
     return suggestions;
 }
 
@@ -149,31 +149,31 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
     if (textView.selectedRanges.firstObject == nil) {
         return NSMakeRange(NSNotFound, 0);
     }
-    
+
     NSRange range = textView.selectedRanges.firstObject.rangeValue;
-    
+
     if (range.length != 0) {
         return NSMakeRange(NSNotFound, 0);
     }
-    
+
     NSString *text = [textView.string lowercaseString];
     NSString *leftText = [text substringToIndex:range.location];
     NSString *rightText = [text substringFromIndex:range.location];
-    
+
     NSRange leftInvalidCharacterRange = [leftText rangeOfCharacterFromSet:self.invertedCharacterSet options:NSBackwardsSearch];
     if (leftInvalidCharacterRange.location == NSNotFound
         || ![[leftText substringWithRange:leftInvalidCharacterRange] isEqualToString:ZPLSuggestionDelimeter]) {
         return NSMakeRange(NSNotFound, 0);
     }
-    
+
     NSUInteger rightInvalidCharacterIndex = [rightText rangeOfCharacterFromSet:self.invertedCharacterSet].location;
     if (rightInvalidCharacterIndex == NSNotFound) {
         rightInvalidCharacterIndex = rightText.length;
     }
-    
+
     NSUInteger keywordLocation = leftInvalidCharacterRange.location + ZPLSuggestionDelimeter.length;
     NSUInteger keywordLength = range.location + rightInvalidCharacterIndex - keywordLocation;
-    
+
     return NSMakeRange(keywordLocation, keywordLength);
 }
 
@@ -181,14 +181,14 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
 
 - (void)textViewDidChangeSelection:(NSNotification *)notification {
     NSTextView *textView = (NSTextView *)notification.object;
-    
+
     if (![textView isKindOfClass:NSClassFromString(MSTextLayerTextViewClassName)] &&
         ![textView zpl_nextRespondersContainClassFromNames:self.responderClassNames]) {
         [self dismissWindowController];
-        
+
         return;
     }
-    
+
     [self reloadSuggestionsForTextView:textView];
 }
 
@@ -198,32 +198,32 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
     if (!self.positioningTextView) {
         return;
     }
-    
+
     NSRange keywordRange = [self keywordRangeForTextView:self.positioningTextView];
-    
+
     if (keywordRange.location == NSNotFound) {
         return;
     }
-    
+
     keywordRange = NSMakeRange(keywordRange.location - ZPLSuggestionDelimeter.length, keywordRange.length + ZPLSuggestionDelimeter.length);
     NSUInteger keywordMaxRange = NSMaxRange(keywordRange);
-    
+
     BOOL hasWhitespaceSuffix = NO;
     if (keywordMaxRange < self.positioningTextView.string.length - 1) {
         NSString *nextCharacterString = [self.positioningTextView.string substringWithRange:NSMakeRange(keywordMaxRange, 1)];
-        
+
         if ([nextCharacterString rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]].location != NSNotFound) {
             hasWhitespaceSuffix = YES;
         }
     }
-    
+
     NSString *replacement;
     if (hasWhitespaceSuffix) {
         replacement = [suggestion.emoji.value copy];
     } else {
         replacement = [NSString stringWithFormat:@"%@ ", suggestion.emoji.value];
     }
-    
+
     [[self.positioningTextView textStorage] replaceCharactersInRange:keywordRange withString:replacement];
 }
 

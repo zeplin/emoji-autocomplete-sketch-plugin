@@ -39,15 +39,15 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {
 
 + (BOOL)supportsUnicodeVersion:(NSString *)unicodeVersion {
     NSMutableArray<NSString *> *supportedUnicodeVersions = [NSMutableArray arrayWithArray:@[@"", @"3.0", @"3.2", @"4.0", @"4.1", @"5.1", @"5.2", @"6.0", @"6.1", @"7.0"]];
-    
+
     if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode8OperationSystemVersion]) {
         [supportedUnicodeVersions addObject:@"8.0"];
     }
-    
+
     if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode9OperationSystemVersion]) {
         [supportedUnicodeVersions addObject:@"9.0"];
     }
-    
+
     return [supportedUnicodeVersions containsObject:unicodeVersion];
 }
 
@@ -56,18 +56,18 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {
     if (!self) {
         return nil;
     }
-    
+
     NSString *value = (NSString *)[dictionary objectForKey:ZPLEmojiValueDictionaryKey];
     NSArray<NSString *> *aliases = (NSArray<NSString *> *)[dictionary objectForKey:ZPLEmojiAliasesDictionaryKey];
     NSString *unicodeVersion = (NSString *)[dictionary objectForKey:ZPLEmojiUnicodeVersionDictionaryKey];
-    
+
     if (!value || !aliases || aliases.count == 0 || !unicodeVersion || ![ZPLEmoji supportsUnicodeVersion:unicodeVersion]) {
         return nil;
     }
-    
+
     _value = [value copy];
     _aliases = aliases;
-    
+
     return self;
 }
 

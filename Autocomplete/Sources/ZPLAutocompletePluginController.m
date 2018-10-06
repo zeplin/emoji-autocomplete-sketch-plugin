@@ -44,7 +44,7 @@
     dispatch_once(&once, ^{
         _sharedInstance = [[self alloc] init];
     });
-    
+
     return _sharedInstance;
 }
 
@@ -54,9 +54,9 @@
     if (_enabled == enabled) {
         return;
     }
-    
+
     _enabled = enabled;
-    
+
     if (enabled) {
         self.suggestionController = [[ZPLSuggestionController alloc] init];
     } else {

@@ -33,10 +33,10 @@
     if (!self) {
         return nil;
     }
-    
+
     _emoji = emoji;
     _alias = [alias copy];
-    
+
     return self;
 }
 

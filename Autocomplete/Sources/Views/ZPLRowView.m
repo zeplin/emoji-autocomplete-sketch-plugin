@@ -38,7 +38,7 @@
 
 - (void)drawSelectionInRect:(NSRect)dirtyRect {
     [[NSColor zpl_selectionColor] setFill];
-    
+
     [[NSBezierPath bezierPathWithRect:self.bounds] fill];
 }
 
