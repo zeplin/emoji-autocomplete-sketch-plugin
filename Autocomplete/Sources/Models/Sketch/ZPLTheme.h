@@ -1,8 +1,8 @@
 //
-//  ZPLRowView.m
+//  ZPLTheme.h
 //  Autocomplete
 //
-//  Created by K. Berk Cebi on 7/9/18.
+//  Created by K. Berk Cebi on 10/6/18.
 //  Copyright © 2018 Zeplin, Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,31 +24,16 @@
 //  SOFTWARE.
 //
 
-#import "ZPLRowView.h"
+#import <Cocoa/Cocoa.h>
 
-#import "ZPLTheme.h"
-#import "NSColor+Autocomplete.h"
+static NSString * const ZPLThemeClassName = @"MSTheme";
 
-@implementation ZPLRowView
+@protocol ZPLTheme <NSObject>
 
-#pragma mark - ZPLRowView
++ (instancetype)sharedTheme;
 
-- (NSBackgroundStyle)interiorBackgroundStyle {
-    return self.isSelected ? NSBackgroundStyleDark : NSBackgroundStyleLight;
-}
-
-- (void)drawSelectionInRect:(NSRect)dirtyRect {
-    NSColor *color;
-    Class themeClass = NSClassFromString(ZPLThemeClassName);
-    if (themeClass != nil) {
-        color = [[themeClass sharedTheme] inspectorAccentColor];
-    } else {
-        color = [NSColor zpl_selectionColor];
-    }
-
-    [color setFill];
-
-    [[NSBezierPath bezierPathWithRect:self.bounds] fill];
-}
+@property (readonly, nonatomic) NSColor *inspectorLabelTextColor;
+@property (readonly, nonatomic) NSColor *inspectorAccentColor;
+@property (readonly, nonatomic) NSColor *layerListBackgroundColor;
 
 @end

@@ -29,6 +29,7 @@
 #import "ZPLSuggestionWindowController.h"
 
 #import "ZPLSuggestion.h"
+#import "ZPLTheme.h"
 #import "ZPLFocusTableView.h"
 #import "ZPLSuggestionCell.h"
 #import "ZPLRowView.h"
@@ -90,6 +91,11 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.allowsEmptySelection = NO;
+
+    Class themeClass = NSClassFromString(ZPLThemeClassName);
+    if (themeClass != nil) {
+        _tableView.backgroundColor = [[themeClass sharedTheme] layerListBackgroundColor];
+    }
 
     NSScrollView *scrollView = [[NSScrollView alloc] init];
     scrollView.documentView = _tableView;
