@@ -91,7 +91,11 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.allowsEmptySelection = NO;
-    _tableView.backgroundColor = [NSColor zpl_backgroundColor];
+
+    NSColor *tableViewBackgroundColor = [NSColor zpl_backgroundColor];
+    if (tableViewBackgroundColor) {
+        _tableView.backgroundColor = tableViewBackgroundColor;
+    }
 
     NSScrollView *scrollView = [[NSScrollView alloc] init];
     scrollView.documentView = _tableView;
