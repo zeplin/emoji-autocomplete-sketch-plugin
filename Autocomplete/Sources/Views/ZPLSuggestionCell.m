@@ -28,6 +28,7 @@
 
 #import "ZPLEmoji.h"
 #import "ZPLSuggestion.h"
+#import "NSColor+Autocomplete.h"
 
 static const CGFloat ZPLSuggestionCellHeight = 32.0f;
 static const CGFloat ZPLSuggestionCellMargin = 8.0f;
@@ -78,6 +79,12 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     _aliasTextField.lineBreakMode = NSLineBreakByTruncatingMiddle;
     _aliasTextField.alignment = NSTextAlignmentLeft;
     _aliasTextField.font = [NSFont systemFontOfSize:11.0];
+
+    NSColor *aliasTextFieldTextColor = [NSColor zpl_textColor];
+    if (aliasTextFieldTextColor) {
+        _aliasTextField.textColor = aliasTextFieldTextColor;
+    }
+
     [_aliasTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_aliasTextField setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
 

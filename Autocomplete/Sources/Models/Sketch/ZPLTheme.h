@@ -1,8 +1,8 @@
 //
-//  NSColor+Autocomplete.m
+//  ZPLTheme.h
 //  Autocomplete
 //
-//  Created by K. Berk Cebi on 7/9/18.
+//  Created by K. Berk Cebi on 10/6/18.
 //  Copyright © 2018 Zeplin, Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,48 +24,16 @@
 //  SOFTWARE.
 //
 
-#import "NSColor+Autocomplete.h"
+#import <Cocoa/Cocoa.h>
 
-#import "ZPLTheme.h"
+static NSString * const ZPLThemeClassName = @"MSTheme";
 
-@implementation NSColor (Autocomplete)
+@protocol ZPLTheme <NSObject>
 
-+ (NSColor *)zpl_backgroundColor {
-    NSObject<ZPLTheme> *theme = [self zpl_currentTheme];
-    if (!theme) {
-        return nil;
-    }
++ (instancetype)sharedTheme;
 
-    return [theme layerListBackgroundColor];
-}
-
-+ (NSColor *)zpl_selectionColor {
-    NSObject<ZPLTheme> *theme = [self zpl_currentTheme];
-    if (!theme) {
-        return [NSColor colorWithDeviceRed:105.0f / 255.0f green:155.0f / 255.0f blue:228.0f / 255.0f alpha:1.0f];
-    }
-
-    return [theme inspectorAccentColor];
-}
-
-+ (NSColor *)zpl_textColor {
-    NSObject<ZPLTheme> *theme = [self zpl_currentTheme];
-    if (!theme) {
-        return nil;
-    }
-
-    return [theme inspectorLabelTextColor];
-}
-
-#pragma mark - Private
-
-+ (NSObject<ZPLTheme> *)zpl_currentTheme {
-    Class themeClass = NSClassFromString(ZPLThemeClassName);
-    if (!themeClass) {
-        return nil;
-    }
-
-    return [themeClass sharedTheme];
-}
+@property (readonly, nonatomic) NSColor *inspectorLabelTextColor;
+@property (readonly, nonatomic) NSColor *inspectorAccentColor;
+@property (readonly, nonatomic) NSColor *layerListBackgroundColor;
 
 @end
