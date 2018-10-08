@@ -31,6 +31,7 @@
 		C0840FD320F37E1D00AEAE81 /* ZPLRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */; };
 		C0840FD720F3B46400AEAE81 /* NSColor+Autocomplete.h in Headers */ = {isa = PBXBuildFile; fileRef = C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */; };
 		C0840FD820F3B46400AEAE81 /* NSColor+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = C0840FD620F3B46400AEAE81 /* NSColor+Autocomplete.m */; };
+		C0C13FDB21699E2800E85491 /* ZPLTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C13FDA21699E2800E85491 /* ZPLTheme.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		C0840FD120F37E1D00AEAE81 /* ZPLRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPLRowView.m; sourceTree = "<group>"; };
 		C0840FD520F3B46400AEAE81 /* NSColor+Autocomplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Autocomplete.h"; sourceTree = "<group>"; };
 		C0840FD620F3B46400AEAE81 /* NSColor+Autocomplete.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Autocomplete.m"; sourceTree = "<group>"; };
+		C0C13FDA21699E2800E85491 /* ZPLTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPLTheme.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				3435B75220E6C57600A04DBC /* ZPLEmoji.m */,
 				3435B75A20E6C6B500A04DBC /* ZPLSuggestion.h */,
 				3435B75B20E6C6B500A04DBC /* ZPLSuggestion.m */,
+				C0C13FD921699DF000E85491 /* Sketch */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +172,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		C0C13FD921699DF000E85491 /* Sketch */ = {
+			isa = PBXGroup;
+			children = (
+				C0C13FDA21699E2800E85491 /* ZPLTheme.h */,
+			);
+			path = Sketch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -182,6 +193,7 @@
 				3435B76520E6C7F800A04DBC /* ZPLFocusTableView.h in Headers */,
 				3435B73920E6C0C100A04DBC /* Autocomplete.h in Headers */,
 				C0840FD220F37E1D00AEAE81 /* ZPLRowView.h in Headers */,
+				C0C13FDB21699E2800E85491 /* ZPLTheme.h in Headers */,
 				3435B75C20E6C6B500A04DBC /* ZPLSuggestion.h in Headers */,
 				3435B76020E6C76100A04DBC /* ZPLSuggestionCell.h in Headers */,
 				343DDD0920F51B450087E1CB /* NSView+Autocomplete.h in Headers */,
@@ -218,7 +230,7 @@
 		3435B72B20E6C0C100A04DBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Zeplin, Inc.";
 				TargetAttributes = {
 					3435B73320E6C0C100A04DBC = {
@@ -396,6 +408,7 @@
 		3435B73D20E6C0C100A04DBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -418,6 +431,7 @@
 		3435B73E20E6C0C100A04DBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

@@ -1,8 +1,8 @@
 //
-//  ZPLEmojiController.m
+//  ZPLTheme.h
 //  Autocomplete
 //
-//  Created by Yigitcan Yurtsever on 29.06.2018.
+//  Created by K. Berk Cebi on 10/6/18.
 //  Copyright © 2018 Zeplin, Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,38 +24,16 @@
 //  SOFTWARE.
 //
 
-#import "ZPLEmojiController.h"
+#import <Cocoa/Cocoa.h>
 
-#import "ZPLAutocompletePluginController.h"
+static NSString * const ZPLThemeClassName = @"MSTheme";
 
-@implementation ZPLEmojiController
+@protocol ZPLTheme <NSObject>
 
-#pragma mark - Initializers
++ (instancetype)sharedTheme;
 
-- (instancetype)init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-
-    NSBundle *bundle = [NSBundle bundleForClass:[ZPLAutocompletePluginController class]];
-    NSString *emojiListPath = [bundle pathForResource:@"Emojis" ofType:@"plist"];
-    NSArray<NSDictionary *> *emojiDictionaries = (NSArray<NSDictionary *> *)[NSArray arrayWithContentsOfFile:emojiListPath];
-
-    NSMutableArray<ZPLEmoji *> *emojis = [NSMutableArray array];
-    for (NSDictionary *emojiDictionary in emojiDictionaries) {
-        ZPLEmoji *emoji = [[ZPLEmoji alloc] initWithDictionary:emojiDictionary];
-
-        if (!emoji) {
-            continue;
-        }
-
-        [emojis addObject:emoji];
-    }
-
-    self.emojis = emojis;
-
-    return self;
-}
+@property (readonly, nonatomic) NSColor *inspectorLabelTextColor;
+@property (readonly, nonatomic) NSColor *inspectorAccentColor;
+@property (readonly, nonatomic) NSColor *layerListBackgroundColor;
 
 @end

@@ -1,9 +1,9 @@
-//
-//  ZPLEmojiController.m
-//  Autocomplete
-//
-//  Created by Yigitcan Yurtsever on 29.06.2018.
-//  Copyright © 2018 Zeplin, Inc.
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>COPYRIGHT</key>
+	<string>Copyright © ___YEAR___ ___ORGANIZATIONNAME___
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,41 +21,6 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
-
-#import "ZPLEmojiController.h"
-
-#import "ZPLAutocompletePluginController.h"
-
-@implementation ZPLEmojiController
-
-#pragma mark - Initializers
-
-- (instancetype)init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-
-    NSBundle *bundle = [NSBundle bundleForClass:[ZPLAutocompletePluginController class]];
-    NSString *emojiListPath = [bundle pathForResource:@"Emojis" ofType:@"plist"];
-    NSArray<NSDictionary *> *emojiDictionaries = (NSArray<NSDictionary *> *)[NSArray arrayWithContentsOfFile:emojiListPath];
-
-    NSMutableArray<ZPLEmoji *> *emojis = [NSMutableArray array];
-    for (NSDictionary *emojiDictionary in emojiDictionaries) {
-        ZPLEmoji *emoji = [[ZPLEmoji alloc] initWithDictionary:emojiDictionary];
-
-        if (!emoji) {
-            continue;
-        }
-
-        [emojis addObject:emoji];
-    }
-
-    self.emojis = emojis;
-
-    return self;
-}
-
-@end
+//  SOFTWARE.</string>
+</dict>
+</plist>

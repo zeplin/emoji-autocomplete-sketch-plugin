@@ -3,13 +3,32 @@
 //  Autocomplete
 //
 //  Created by Yigitcan Yurtsever on 29.06.2018.
-//  Copyright © 2018 Zeplin, Inc. All rights reserved.
+//  Copyright © 2018 Zeplin, Inc.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 //
 
 #import "ZPLSuggestionCell.h"
 
 #import "ZPLEmoji.h"
 #import "ZPLSuggestion.h"
+#import "NSColor+Autocomplete.h"
 
 static const CGFloat ZPLSuggestionCellHeight = 32.0f;
 static const CGFloat ZPLSuggestionCellMargin = 8.0f;
@@ -38,9 +57,9 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     if (!self) {
         return nil;
     }
-    
+
     self.identifier = [[self class] reuseIdentifier];
-    
+
     _emojiTextField = [[NSTextField alloc] init];
     _emojiTextField.bordered = NO;
     _emojiTextField.drawsBackground = NO;
@@ -50,7 +69,7 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     _emojiTextField.font = [NSFont systemFontOfSize:14.0];
     [_emojiTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_emojiTextField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
-    
+
     _aliasTextField = [[NSTextField alloc] init];
     _aliasTextField.bordered = NO;
     _aliasTextField.drawsBackground = NO;
@@ -60,16 +79,22 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     _aliasTextField.lineBreakMode = NSLineBreakByTruncatingMiddle;
     _aliasTextField.alignment = NSTextAlignmentLeft;
     _aliasTextField.font = [NSFont systemFontOfSize:11.0];
+
+    NSColor *aliasTextFieldTextColor = [NSColor zpl_textColor];
+    if (aliasTextFieldTextColor) {
+        _aliasTextField.textColor = aliasTextFieldTextColor;
+    }
+
     [_aliasTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_aliasTextField setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
-    
+
     [self addSubview:_emojiTextField];
     [self addSubview:_aliasTextField];
-    
+
     self.translatesAutoresizingMaskIntoConstraints = NO;
     _emojiTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _aliasTextField.translatesAutoresizingMaskIntoConstraints = NO;
-    
+
     [NSLayoutConstraint activateConstraints:@[
         [_emojiTextField.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:ZPLSuggestionCellMargin],
         [_emojiTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
@@ -77,7 +102,7 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
         [_aliasTextField.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-1.0f * ZPLSuggestionCellMargin],
         [_aliasTextField.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]
     ]];
-    
+
     return self;
 }
 
@@ -85,7 +110,7 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
 
 - (void)setSuggestion:(ZPLSuggestion *)suggestion {
     _suggestion = suggestion;
-    
+
     self.emojiTextField.stringValue = suggestion.emoji.value;
     self.aliasTextField.stringValue = suggestion.alias;
 }
