@@ -28,6 +28,8 @@
 
 @interface NSColor (Autocomplete)
 
++ (NSColor *)zpl_backgroundColor;
 + (NSColor *)zpl_selectionColor;
++ (NSColor *)zpl_textColor;
 
 @end

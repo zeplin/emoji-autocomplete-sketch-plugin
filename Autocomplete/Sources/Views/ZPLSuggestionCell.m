@@ -28,7 +28,7 @@
 
 #import "ZPLEmoji.h"
 #import "ZPLSuggestion.h"
-#import "ZPLTheme.h"
+#import "NSColor+Autocomplete.h"
 
 static const CGFloat ZPLSuggestionCellHeight = 32.0f;
 static const CGFloat ZPLSuggestionCellMargin = 8.0f;
@@ -79,13 +79,9 @@ static const CGFloat ZPLSuggestionCellMargin = 8.0f;
     _aliasTextField.lineBreakMode = NSLineBreakByTruncatingMiddle;
     _aliasTextField.alignment = NSTextAlignmentLeft;
     _aliasTextField.font = [NSFont systemFontOfSize:11.0];
+    _aliasTextField.textColor = [NSColor zpl_textColor];
     [_aliasTextField setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
     [_aliasTextField setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
-
-    Class themeClass = NSClassFromString(ZPLThemeClassName);
-    if (themeClass != nil) {
-        _aliasTextField.textColor = [[themeClass sharedTheme] inspectorLabelTextColor];
-    }
 
     [self addSubview:_emojiTextField];
     [self addSubview:_aliasTextField];

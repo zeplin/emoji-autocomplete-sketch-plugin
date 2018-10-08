@@ -26,7 +26,6 @@
 
 #import "ZPLRowView.h"
 
-#import "ZPLTheme.h"
 #import "NSColor+Autocomplete.h"
 
 @implementation ZPLRowView
@@ -38,15 +37,7 @@
 }
 
 - (void)drawSelectionInRect:(NSRect)dirtyRect {
-    NSColor *color;
-    Class themeClass = NSClassFromString(ZPLThemeClassName);
-    if (themeClass != nil) {
-        color = [[themeClass sharedTheme] inspectorAccentColor];
-    } else {
-        color = [NSColor zpl_selectionColor];
-    }
-
-    [color setFill];
+    [[NSColor zpl_selectionColor] setFill];
 
     [[NSBezierPath bezierPathWithRect:self.bounds] fill];
 }

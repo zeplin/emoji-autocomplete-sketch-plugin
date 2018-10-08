@@ -29,10 +29,10 @@
 #import "ZPLSuggestionWindowController.h"
 
 #import "ZPLSuggestion.h"
-#import "ZPLTheme.h"
 #import "ZPLFocusTableView.h"
 #import "ZPLSuggestionCell.h"
 #import "ZPLRowView.h"
+#import "NSColor+Autocomplete.h"
 
 static const CGFloat ZPLSuggestionWindowControllerContentViewCornerRadius = 3.0f;
 static const CGFloat ZPLSuggestionWindowControllerMargin = 8.0f;
@@ -91,11 +91,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.allowsEmptySelection = NO;
-
-    Class themeClass = NSClassFromString(ZPLThemeClassName);
-    if (themeClass != nil) {
-        _tableView.backgroundColor = [[themeClass sharedTheme] layerListBackgroundColor];
-    }
+    _tableView.backgroundColor = [NSColor zpl_backgroundColor];
 
     NSScrollView *scrollView = [[NSScrollView alloc] init];
     scrollView.documentView = _tableView;

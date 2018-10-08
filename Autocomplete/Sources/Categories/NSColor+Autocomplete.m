@@ -26,10 +26,46 @@
 
 #import "NSColor+Autocomplete.h"
 
+#import "ZPLTheme.h"
+
 @implementation NSColor (Autocomplete)
 
++ (NSColor *)zpl_backgroundColor {
+    NSObject<ZPLTheme> *theme = [self zpl_currentTheme];
+    if (!theme) {
+        return nil;
+    }
+
+    return [theme layerListBackgroundColor];
+}
+
 + (NSColor *)zpl_selectionColor {
-    return [NSColor colorWithDeviceRed:105.0f / 255.0f green:155.0f / 255.0f blue:228.0f / 255.0f alpha:1.0f];
+    NSObject<ZPLTheme> *theme = [self zpl_currentTheme];
+    if (!theme) {
+        return [NSColor colorWithDeviceRed:105.0f / 255.0f green:155.0f / 255.0f blue:228.0f / 255.0f alpha:1.0f];
+    }
+
+    return [theme inspectorAccentColor];
+}
+
++ (NSColor *)zpl_textColor {
+    NSObject<ZPLTheme> *theme = [self zpl_currentTheme];
+    if (!theme) {
+        return nil;
+    }
+
+    return [theme inspectorLabelTextColor];
+}
+
+#pragma mark - Private
+
++ (NSObject<ZPLTheme> *)zpl_currentTheme {
+    Class themeClass = NSClassFromString(ZPLThemeClassName);
+    if (!themeClass) {
+        return nil;
+    }
+
+    return [themeClass sharedTheme];
 }
 
 @end
