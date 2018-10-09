@@ -5,6 +5,17 @@
     <description>Type “:” followed by the first few letters to autocomplete emojis.</description>
     <language>en</language>
       <item>
+        <title>Version 1.0</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>Added dark mode support, along with Sketch 52.</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v1.0/Emoji.Autocomplete.sketchplugin.zip" sparkle:version="1.0" />
+      </item>
+      <item>
         <title>Version 0.2</title>
         <description>
           <![CDATA[
