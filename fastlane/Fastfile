@@ -66,6 +66,7 @@ platform :mac do
 
     FileUtils.cp("../plugin/img/icon.png", resources_dir)
     FileUtils.cp("../plugin/img/iconRunner.png", resources_dir)
+    FileUtils.cp("../plugin/img/iconRunnerDark.png", resources_dir)
 
     sketch_dir = File.join(contents_dir, "Sketch")
     FileUtils.mkdir_p(sketch_dir)
