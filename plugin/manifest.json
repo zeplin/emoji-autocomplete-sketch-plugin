@@ -28,6 +28,7 @@
             "script": "index.js",
             "handler": "onSelectAboutMenuItem",
             "icon": "iconRunner.png",
+            "iconDark": "iconRunnerDark.png",
             "description": "Learn more about the Emoji Autocomplete plugin."
         }
     ],
