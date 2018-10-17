@@ -35,9 +35,11 @@
 
 static NSString * const ZPLSuggestionDelimeter = @":";
 static NSString * const MSTextLayerTextViewClassName = @"MSTextLayerTextView";
+static NSString * const MSOverrideTextFieldClassName = @"MSOverrideTextField";
 static NSString * const BCPageListViewControllerClassName = @"BCPageListViewController";
 static NSString * const BCLayerListViewControllerClassName = @"BCLayerListViewController";
 static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverrideViewController";
+static NSString * const MSTextOverrideInspectorItemClassName = @"MSTextOverrideInspectorItem";
 
 @interface ZPLSuggestionController () <ZPLSuggestionWindowControllerDelegate>
 
@@ -67,7 +69,7 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
 
     _emojiController = [[ZPLEmojiController alloc] init];
     _invertedCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
-    _responderClassNames = @[BCPageListViewControllerClassName, BCLayerListViewControllerClassName, MSTextOverrideViewControllerClassName];
+    _responderClassNames = @[BCPageListViewControllerClassName, BCLayerListViewControllerClassName, MSTextOverrideViewControllerClassName, MSTextOverrideInspectorItemClassName];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChangeSelection:) name:NSTextViewDidChangeSelectionNotification object:nil];
 
@@ -183,6 +185,7 @@ static NSString * const MSTextOverrideViewControllerClassName = @"MSTextOverride
     NSTextView *textView = (NSTextView *)notification.object;
 
     if (![textView isKindOfClass:NSClassFromString(MSTextLayerTextViewClassName)] &&
+        ![textView.delegate isKindOfClass:NSClassFromString(MSOverrideTextFieldClassName)] &&
         ![textView zpl_nextRespondersContainClassFromNames:self.responderClassNames]) {
         [self dismissWindowController];
 
