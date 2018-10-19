@@ -30,7 +30,12 @@ NSString * const ZPLEmojiAliasSeparator = @"_";
 
 static NSString * const ZPLEmojiValueDictionaryKey = @"emoji";
 static NSString * const ZPLEmojiAliasesDictionaryKey = @"aliases";
+static NSString * const ZPLEmojiDescriptionDictionaryKey = @"description";
 static NSString * const ZPLEmojiUnicodeVersionDictionaryKey = @"unicode_version";
+static NSString * const ZPLEmojiCategoryDictionaryKey = @"category";
+static NSString * const ZPLEmojiFlagsCategoryDictionaryValue = @"Flags";
+
+static NSString * const ZPLEmojiWhitespaceSeparator = @" ";
 
 static const NSOperatingSystemVersion ZPLEmojiUnicode8OperationSystemVersion = {.majorVersion = 10, .minorVersion = 11, .patchVersion = 5};
 static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {.majorVersion = 10, .minorVersion = 12, .patchVersion = 2};
@@ -63,6 +68,20 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {
 
     if (!value || !aliases || aliases.count == 0 || !unicodeVersion || ![ZPLEmoji supportsUnicodeVersion:unicodeVersion]) {
         return nil;
+    }
+
+    NSString *category = (NSString *)[dictionary objectForKey:ZPLEmojiCategoryDictionaryKey];
+
+    if ([category isEqualToString:ZPLEmojiFlagsCategoryDictionaryValue]) {
+        NSString *description = (NSString *)[dictionary objectForKey:ZPLEmojiDescriptionDictionaryKey];
+
+        if (description != nil) {
+            NSString *adjustedDescription = [[description stringByReplacingOccurrencesOfString:ZPLEmojiWhitespaceSeparator withString:ZPLEmojiAliasSeparator] lowercaseString];
+
+            if (![aliases containsObject:adjustedDescription]) {
+                aliases = [aliases arrayByAddingObject:adjustedDescription];
+            }
+        }
     }
 
     _value = [value copy];
