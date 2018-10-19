@@ -30,8 +30,9 @@ extern NSString * const ZPLEmojiAliasSeparator;
 
 @interface ZPLEmoji : NSObject
 
-@property (strong, nonatomic) NSArray<NSString *> *aliases;
 @property (copy, nonatomic) NSString *value;
+@property (strong, nonatomic) NSArray<NSString *> *aliases;
+@property (strong, nonatomic) NSArray<NSString *> *tags;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
