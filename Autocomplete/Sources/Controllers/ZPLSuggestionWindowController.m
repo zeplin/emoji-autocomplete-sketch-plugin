@@ -273,7 +273,7 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     rect.size.width = ZPLSuggestionWindowControllerMaximumWindowSize.width;
     rect.size.height = windowHeight;
 
-    CGFloat screenMaxX = NSMaxX(positioningTextView.window.screen.frame);
+    CGFloat screenMaxX = NSMaxX(positioningTextView.window.screen.visibleFrame);
     CGFloat minX = ZPLSuggestionWindowControllerMargin;
     CGFloat maxX = screenMaxX - ZPLSuggestionWindowControllerMargin;
 
