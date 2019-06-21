@@ -269,18 +269,24 @@ static const NSSize ZPLSuggestionWindowControllerMaximumWindowSize = {.width = 1
     NSRect positioningTextViewRect = [positioningTextView convertRect:characterRect toView:nil];
     NSRect rect = [positioningTextView.window convertRectToScreen:positioningTextViewRect];
 
-    rect.origin.y = rect.origin.y - windowHeight - ZPLSuggestionWindowControllerMargin;
     rect.size.width = ZPLSuggestionWindowControllerMaximumWindowSize.width;
     rect.size.height = windowHeight;
 
-    CGFloat screenMaxX = NSMaxX(positioningTextView.window.screen.visibleFrame);
+    NSRect screenVisibleFrame = positioningTextView.window.screen.visibleFrame;
     CGFloat minX = ZPLSuggestionWindowControllerMargin;
-    CGFloat maxX = screenMaxX - ZPLSuggestionWindowControllerMargin;
+    CGFloat maxX = NSMaxX(screenVisibleFrame) - ZPLSuggestionWindowControllerMargin;
 
     if (NSMaxX(rect) > maxX) {
         rect.origin.x = maxX - rect.size.width;
     } else if (NSMinX(rect) < minX) {
         rect.origin.x = minX;
+    }
+
+    CGFloat rectOriginY = rect.origin.y - windowHeight - ZPLSuggestionWindowControllerMargin;
+    if (rectOriginY < NSMinY(screenVisibleFrame)) {
+        rect.origin.y = rect.origin.y + positioningTextViewRect.size.height;
+    } else {
+        rect.origin.y = rectOriginY;
     }
 
     [self.window setFrame:rect display:NO];
