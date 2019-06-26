@@ -39,6 +39,8 @@ static NSString * const ZPLEmojiFlagTag = @"flag";
 
 static const NSOperatingSystemVersion ZPLEmojiUnicode8OperationSystemVersion = {.majorVersion = 10, .minorVersion = 11, .patchVersion = 5};
 static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {.majorVersion = 10, .minorVersion = 12, .patchVersion = 2};
+static const NSOperatingSystemVersion ZPLEmojiUnicode10OperationSystemVersion = {.majorVersion = 10, .minorVersion = 13, .patchVersion = 1};
+static const NSOperatingSystemVersion ZPLEmojiUnicode11OperationSystemVersion = {.majorVersion = 10, .minorVersion = 14, .patchVersion = 1};
 
 @implementation ZPLEmoji
 
@@ -51,6 +53,14 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {
 
     if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode9OperationSystemVersion]) {
         [supportedUnicodeVersions addObject:@"9.0"];
+    }
+
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode10OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"10.0"];
+    }
+
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode11OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"11.0"];
     }
 
     return [supportedUnicodeVersions containsObject:unicodeVersion];
