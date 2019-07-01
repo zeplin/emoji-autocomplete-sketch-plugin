@@ -30,10 +30,17 @@ NSString * const ZPLEmojiAliasSeparator = @"_";
 
 static NSString * const ZPLEmojiValueDictionaryKey = @"emoji";
 static NSString * const ZPLEmojiAliasesDictionaryKey = @"aliases";
+static NSString * const ZPLEmojiTagsDictionaryKey = @"tags";
 static NSString * const ZPLEmojiUnicodeVersionDictionaryKey = @"unicode_version";
+static NSString * const ZPLEmojiCategoryDictionaryKey = @"category";
+static NSString * const ZPLEmojiFlagsCategoryDictionaryValue = @"Flags";
+
+static NSString * const ZPLEmojiFlagTag = @"flag";
 
 static const NSOperatingSystemVersion ZPLEmojiUnicode8OperationSystemVersion = {.majorVersion = 10, .minorVersion = 11, .patchVersion = 5};
 static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {.majorVersion = 10, .minorVersion = 12, .patchVersion = 2};
+static const NSOperatingSystemVersion ZPLEmojiUnicode10OperationSystemVersion = {.majorVersion = 10, .minorVersion = 13, .patchVersion = 1};
+static const NSOperatingSystemVersion ZPLEmojiUnicode11OperationSystemVersion = {.majorVersion = 10, .minorVersion = 14, .patchVersion = 1};
 
 @implementation ZPLEmoji
 
@@ -48,6 +55,14 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {
         [supportedUnicodeVersions addObject:@"9.0"];
     }
 
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode10OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"10.0"];
+    }
+
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode11OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"11.0"];
+    }
+
     return [supportedUnicodeVersions containsObject:unicodeVersion];
 }
 
@@ -59,14 +74,26 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {
 
     NSString *value = (NSString *)[dictionary objectForKey:ZPLEmojiValueDictionaryKey];
     NSArray<NSString *> *aliases = (NSArray<NSString *> *)[dictionary objectForKey:ZPLEmojiAliasesDictionaryKey];
+    NSArray<NSString *> *tags = (NSArray<NSString *> *)[dictionary objectForKey:ZPLEmojiTagsDictionaryKey];
     NSString *unicodeVersion = (NSString *)[dictionary objectForKey:ZPLEmojiUnicodeVersionDictionaryKey];
 
     if (!value || !aliases || aliases.count == 0 || !unicodeVersion || ![ZPLEmoji supportsUnicodeVersion:unicodeVersion]) {
         return nil;
     }
 
+    if (!tags) {
+        tags = [NSArray array];
+    }
+
+    NSString *category = (NSString *)[dictionary objectForKey:ZPLEmojiCategoryDictionaryKey];
+
+    if ([category isEqualToString:ZPLEmojiFlagsCategoryDictionaryValue] && ![tags containsObject:ZPLEmojiFlagTag]) {
+        tags = [tags arrayByAddingObject:ZPLEmojiFlagTag];
+    }
+
     _value = [value copy];
     _aliases = aliases;
+    _tags = tags;
 
     return self;
 }

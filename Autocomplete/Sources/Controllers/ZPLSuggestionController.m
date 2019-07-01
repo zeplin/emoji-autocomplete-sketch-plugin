@@ -113,6 +113,8 @@ static NSString * const MSTextOverrideInspectorItemClassName = @"MSTextOverrideI
     NSMutableArray<ZPLSuggestion *> *suggestions = [NSMutableArray array];
 
     for (ZPLEmoji *emoji in self.emojiController.emojis) {
+        BOOL suggestionAdded = NO;
+
         for (NSString *alias in emoji.aliases) {
             if ([alias hasPrefix:keyword]) {
                 ZPLSuggestion *suggestion = [[ZPLSuggestion alloc] init];
@@ -120,8 +122,9 @@ static NSString * const MSTextOverrideInspectorItemClassName = @"MSTextOverrideI
                 suggestion.alias = alias;
 
                 [suggestions addObject:suggestion];
+                suggestionAdded = YES;
 
-                continue;
+                break;
             }
 
             NSArray<NSString *> *aliasComponents = [alias componentsSeparatedByString:ZPLEmojiAliasSeparator];
@@ -137,9 +140,27 @@ static NSString * const MSTextOverrideInspectorItemClassName = @"MSTextOverrideI
                     suggestion.alias = alias;
 
                     [suggestions addObject:suggestion];
+                    suggestionAdded = YES;
 
                     break;
                 }
+            }
+        }
+
+        if (suggestionAdded) {
+            continue;
+        }
+
+        for (NSString *tag in emoji.tags) {
+            if ([tag hasPrefix:keyword]) {
+                ZPLSuggestion *suggestion = [[ZPLSuggestion alloc] init];
+                suggestion.emoji = emoji;
+                suggestion.alias = [[emoji aliases] firstObject];
+
+                [suggestions addObject:suggestion];
+                suggestionAdded = YES;
+
+                break;
             }
         }
     }
