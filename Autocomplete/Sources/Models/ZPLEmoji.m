@@ -41,6 +41,9 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode8OperationSystemVersion = {
 static const NSOperatingSystemVersion ZPLEmojiUnicode9OperationSystemVersion = {.majorVersion = 10, .minorVersion = 12, .patchVersion = 2};
 static const NSOperatingSystemVersion ZPLEmojiUnicode10OperationSystemVersion = {.majorVersion = 10, .minorVersion = 13, .patchVersion = 1};
 static const NSOperatingSystemVersion ZPLEmojiUnicode11OperationSystemVersion = {.majorVersion = 10, .minorVersion = 14, .patchVersion = 1};
+static const NSOperatingSystemVersion ZPLEmojiUnicode12OperationSystemVersion = {.majorVersion = 10, .minorVersion = 15, .patchVersion = 1};
+static const NSOperatingSystemVersion ZPLEmojiUnicode13OperationSystemVersion = {.majorVersion = 11, .minorVersion = 3, .patchVersion = 0};
+static const NSOperatingSystemVersion ZPLEmojiUnicode14OperationSystemVersion = {.majorVersion = 12, .minorVersion = 3, .patchVersion = 0};
 
 @implementation ZPLEmoji
 
@@ -61,6 +64,20 @@ static const NSOperatingSystemVersion ZPLEmojiUnicode11OperationSystemVersion = 
 
     if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode11OperationSystemVersion]) {
         [supportedUnicodeVersions addObject:@"11.0"];
+    }
+
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode12OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"12.0"];
+        [supportedUnicodeVersions addObject:@"12.1"];
+    }
+
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode13OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"13.0"];
+        [supportedUnicodeVersions addObject:@"13.1"];
+    }
+
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ZPLEmojiUnicode14OperationSystemVersion]) {
+        [supportedUnicodeVersions addObject:@"14.0"];
     }
 
     return [supportedUnicodeVersions containsObject:unicodeVersion];
