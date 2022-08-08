@@ -11,7 +11,7 @@ default_platform(:mac)
 platform :mac do
   desc "Install dependencies"
   lane :bootstrap do
-    emojis_uri = URI("https://raw.githubusercontent.com/github/gemoji/master/db/emoji.json")
+    emojis_uri = URI("https://raw.githubusercontent.com/kardeslik/gemoji/import-emoji-14/db/emoji.json")
     emojis_string = Net::HTTP.get(emojis_uri)
 
     emojis_tempfile = Tempfile.new("emojis")
