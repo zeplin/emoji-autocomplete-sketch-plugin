@@ -4,7 +4,7 @@
     "author": "Zeplin, Inc.",
     "authorEmail": "support@zeplin.io",
     "homepage": "https://github.com/zeplin/emoji-autocomplete-sketch-plugin",
-    "version": "1.2",
+    "version": "1.3",
     "identifier": "io.zeplin.sketchPlugin.autocomplete",
     "appcast": "https://raw.githubusercontent.com/zeplin/emoji-autocomplete-sketch-plugin/master/.appcast.xml",
     "icon": "icon.png",
