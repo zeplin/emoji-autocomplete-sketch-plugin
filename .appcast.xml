@@ -5,6 +5,18 @@
     <description>Type “:” followed by the first few letters to autocomplete emojis.</description>
     <language>en</language>
       <item>
+        <title>Version 1.3</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>You can now add emojis from Unicode 12.0, 13.0, and 14.0.</li>
+              <li>Make plugin compatible with Apple M1.</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/zeplin/emoji-autocomplete-sketch-plugin/releases/download/v1.3/Emoji.Autocomplete.sketchplugin.zip" sparkle:version="1.3" />
+      </item>
+      <item>
         <title>Version 1.2</title>
         <description>
           <![CDATA[
